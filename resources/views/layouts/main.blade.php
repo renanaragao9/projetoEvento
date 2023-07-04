@@ -49,7 +49,10 @@
                 </div>
             </nav>
         </header>
-        @yield('content')
+
+        <div class="container">
+            @yield('content')
+        </div>
 
         <footer>
             <p>HDC Events &copy; 2023</p>
