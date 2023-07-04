@@ -5,7 +5,7 @@
 <?php $__env->startSection('content'); ?>
     
     <div class="col-md-6 offset-md-3" id="event-create-container">
-        <h1>Crie o sei evento</h1>
+        <h1>Crie o seu evento</h1>
         <form action="/events" method="POST">
         <?php echo csrf_field(); ?>
             <div class="form-group">
