@@ -119,6 +119,26 @@ header {
     color: #757575;
 }
 
+/* EVENT CREATE PAGE */
+#event-create-container {
+    padding: 30px;
+}
+
+#event-create-container label {
+    font-weight: bold;
+    padding: 5px;
+}
+
+#event-create-container input,
+#event-create-container select,
+#event-create-container textarea {
+    font-size: 15px;
+}
+
+#button-create {
+    margin-top: 20px;
+}
+
 /* FOOTER */
 footer {
     text-align: center;
