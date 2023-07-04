@@ -50,9 +50,7 @@
             </nav>
         </header>
 
-        <div class="container">
             @yield('content')
-        </div>
 
         <footer>
             <p>HDC Events &copy; 2023</p>
