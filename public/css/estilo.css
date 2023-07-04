@@ -1,4 +1,5 @@
  
+ /* GERAL */
 body {
     min-height: 100vh;
     padding-bottom: 100px;
@@ -26,6 +27,16 @@ header {
 .btn-primary:hover {
     background-color: #c28008;
     border-color: #c28008;
+}
+
+.msg {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
 }
 
 /* NAVBAR */
