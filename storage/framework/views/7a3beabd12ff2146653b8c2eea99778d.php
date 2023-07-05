@@ -20,7 +20,7 @@
                         <p class="card-date">10/09/2023</p>
                         <h5 class="card-title"><?php echo e($event->title); ?></h5>
                         <p class="card-participants">X Participantes</p>
-                        <a href="#" class="btn btn-primary">Saber mais</a>
+                        <a href="/events/<?php echo e($event->id); ?>" class="btn btn-primary">Saber mais</a>
                     </div>
                 </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
