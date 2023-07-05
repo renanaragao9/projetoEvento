@@ -44,9 +44,18 @@ class EventController extends Controller
             $event->image = $imageName;
         }
 
+        // Salva os dados no banco
         $event->save();
 
         return redirect('/')->with('msg', 'Evento criado com sucesso!');
+    }
+
+    // Função para acessar os dados do evento
+    public function show($id) {
+        
+        $event = Event::findOrFail($id);
+
+        return view('events.show', ['event' => $event]);
     }
 
 
