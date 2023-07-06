@@ -16,6 +16,12 @@
                 <p class="events-participants"><ion-icon name="people-outline"></ion-icon>X Participantes</p>
                 <p class="event-owner"><ion-icon name="star-outline"></ion-icon>Dono do Evento</p>
                 <a href="#" class="btn btn-primary" id="event-submit">Confirmar Presença</a>
+                <h3>O evento conta com:</h3>
+                <ul id="items-list">
+                    <?php $__currentLoopData = $event->items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <li><ion-icon name="play-outline"></ion-icon><span><?php echo e($item); ?></span></li>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </ul>
             </div>
 
             <div class="col-md-12" id="description-container">
