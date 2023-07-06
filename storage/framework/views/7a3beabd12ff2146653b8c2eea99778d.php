@@ -17,13 +17,16 @@
                 <div class="card col-md-3">
                     <img src="/img/events/<?php echo e($event->image); ?>" alt="<?php echo e($event->title); ?>">
                     <div class="card-body">
-                        <p class="card-date">10/09/2023</p>
+                        <p class="card-date"><?php echo e(date('d/m/Y', strtotime($event->date))); ?></p>
                         <h5 class="card-title"><?php echo e($event->title); ?></h5>
                         <p class="card-participants">X Participantes</p>
                         <a href="/events/<?php echo e($event->id); ?>" class="btn btn-primary">Saber mais</a>
                     </div>
                 </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php if(count($events) == 0): ?>
+                <p>Não há eventos disponíveis</p>
+            <?php endif; ?>
         </div>
      </div>
 <?php $__env->stopSection(); ?>
