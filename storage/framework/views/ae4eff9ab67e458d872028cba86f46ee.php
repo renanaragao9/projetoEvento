@@ -71,6 +71,7 @@
                     <?php if(session('msg')): ?>
                         <p class="msg"><?php echo e(session('msg')); ?></p>
                     <?php endif; ?>
+                    
                     <?php echo $__env->yieldContent('content'); ?>
                 </div>
             </div>

@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="checkbox" name="items[]" value="Cadeiras"> Palco
+                    <input type="checkbox" name="items[]" value="Palco"> Palco
                 </div>
 
                 <div class="form-group">
