@@ -196,6 +196,10 @@ header {
     display: flex;
 }
 
+#description-container {
+    margin-top: 30px;
+}
+
 /* FOOTER */
 footer {
     text-align: center;
