@@ -24,7 +24,14 @@
                             <td scropt="row"><?php echo e($loop->index + 1); ?></td>
                             <td><a href="/events/<?php echo e($event->id); ?>"><?php echo e($event->title); ?></a></td>
                             <td>0</td>
-                            <td><a href="#">Editar</a> <a href="#">Deletar</a></td>
+                            <td>
+                                <a href="#" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a> 
+                                <form action="/events/<?php echo e($event->id); ?>" method="POST">
+                                <?php echo csrf_field(); ?>
+                                <?php echo method_field('DELETE'); ?>
+                                    <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon>Deletar</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
