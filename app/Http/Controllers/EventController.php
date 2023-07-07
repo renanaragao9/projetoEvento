@@ -57,6 +57,7 @@ class EventController extends Controller
             $event->image = $imageName;
         }
 
+        // Pega o id do usuario logado
         $user = auth()->user();
         $event->user_id = $user->id;
 
@@ -74,6 +75,16 @@ class EventController extends Controller
         $eventOwner = User::where('id', $event->user_id)->first()->toArray();
 
         return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);
+    }
+
+    // Função para manipular os dados na dashboard
+    public function dashboard() {
+        
+        $user = auth()->user();
+
+        $events = $user->events;
+
+        return view('events.dashboard', ['events' => $events]);
     }
 
 
