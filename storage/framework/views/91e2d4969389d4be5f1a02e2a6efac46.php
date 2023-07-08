@@ -23,7 +23,7 @@
                         <tr>
                             <td scropt="row"><?php echo e($loop->index + 1); ?></td>
                             <td><a href="/events/<?php echo e($event->id); ?>"><?php echo e($event->title); ?></a></td>
-                            <td>0</td>
+                            <td><?php echo e(count($event->users)); ?></td>
                             <td>
                                 <a href="/events/edit/<?php echo e($event->id); ?>" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a> 
                                 <form action="/events/<?php echo e($event->id); ?>" method="POST">
@@ -38,6 +38,38 @@
             </table>
         <?php else: ?>
             <p>Você ainda não tem eventos, <a href="/events/create">Criar evento</a></p>
+        <?php endif; ?>
+    </div>
+
+    <div class="col-md-10 offset-md-1 dashboard-title-container">
+        <h1>Eventos que estou participando</h1>
+    </div>
+
+    <div class="col-md-10 offset-md-1 dashboard-events-container">
+        <?php if(count($eventsAsParticipant) > 0 ): ?>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Participantes</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php $__currentLoopData = $eventsAsParticipant; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <tr>
+                            <td scropt="row"><?php echo e($loop->index + 1); ?></td>
+                            <td><a href="/events/<?php echo e($event->id); ?>"><?php echo e($event->title); ?></a></td>
+                            <td><?php echo e(count($event->users)); ?></td>
+                            <td> <a href="#">Sair do evento</a> </td>
+                        </tr>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p>Você ainda não está participando de nenhum evento, <a href="/">Veja todos os eventos</a></p>
         <?php endif; ?>
     </div>
 

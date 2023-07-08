@@ -84,7 +84,9 @@ class EventController extends Controller
 
         $events = $user->events;
 
-        return view('events.dashboard', ['events' => $events]);
+        $eventsAsParticipant = $user->eventsAsParticipant;
+
+        return view('events.dashboard', ['events' => $events, 'eventsAsParticipant' => $eventsAsParticipant]);
     }
 
     //Função para deletar um evento
@@ -98,7 +100,13 @@ class EventController extends Controller
     //Função para rota de edição de um evento
     public function edit($id) {
 
+        $user = auth()->user();
+
         $event = Event::findOrFail($id);
+
+        if($user->id != $event->user_id) {
+            return redirect('/dashboard');
+        }
 
         return view('events.edit', ['event' => $event]);
     }
