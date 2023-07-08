@@ -43,19 +43,19 @@ class EventController extends Controller
         $event->description = $request->description;
         $event->items = $request->items;
 
-        // Image Upload
-        if($request->hasFile('image') && $request->file('image')->isValid()) {
-            
-            $requestImage = $request->image;
+            // Image Upload
+            if($request->hasFile('image') && $request->file('image')->isValid()) {
+                
+                $requestImage = $request->image;
 
-            $extension = $requestImage->extension();
+                $extension = $requestImage->extension();
 
-            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
 
-            $requestImage->move(public_path('img/events'), $imageName);
+                $requestImage->move(public_path('img/events'), $imageName);
 
-            $event->image = $imageName;
-        }
+                $event->image = $imageName;
+            }
 
         // Pega o id do usuario logado
         $user = auth()->user();
@@ -95,5 +95,36 @@ class EventController extends Controller
         return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
     }
 
+    //Função para rota de edição de um evento
+    public function edit($id) {
+
+        $event = Event::findOrFail($id);
+
+        return view('events.edit', ['event' => $event]);
+    }
+
+    //Função para edição de um evento
+    public function update(Request $request) {
+
+        $data = $request->all();
+
+            // Image Upload
+            if($request->hasFile('image') && $request->file('image')->isValid()) {
+                
+                $requestImage = $request->image;
+
+                $extension = $requestImage->extension();
+
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+                $requestImage->move(public_path('img/events'), $imageName);
+
+                $data['image'] = $imageName;
+            }
+        
+        Event::findOrFail($request->id)->update($data);
+
+        return redirect('/dashboard')->with('msg', 'Evento editado com sucesso!');
+    }
 
 }

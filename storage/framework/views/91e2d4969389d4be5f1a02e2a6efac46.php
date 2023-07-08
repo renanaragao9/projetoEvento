@@ -25,7 +25,7 @@
                             <td><a href="/events/<?php echo e($event->id); ?>"><?php echo e($event->title); ?></a></td>
                             <td>0</td>
                             <td>
-                                <a href="#" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a> 
+                                <a href="/events/edit/<?php echo e($event->id); ?>" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a> 
                                 <form action="/events/<?php echo e($event->id); ?>" method="POST">
                                 <?php echo csrf_field(); ?>
                                 <?php echo method_field('DELETE'); ?>
