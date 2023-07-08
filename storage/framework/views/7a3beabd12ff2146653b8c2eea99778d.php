@@ -24,7 +24,7 @@
                     <div class="card-body">
                         <p class="card-date"><?php echo e(date('d/m/Y', strtotime($event->date))); ?></p>
                         <h5 class="card-title"><?php echo e($event->title); ?></h5>
-                        <p class="card-participants">X Participantes</p>
+                        <p class="card-participants"> <?php echo e(count($event->users)); ?> Participantes</p>
                         <a href="/events/<?php echo e($event->id); ?>" class="btn btn-primary">Saber mais</a>
                     </div>
                 </div>
