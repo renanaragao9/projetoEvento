@@ -62,10 +62,10 @@ header {
 
 /* Search Container */
 #search-container {
-    background-image: url("../img/freelancer-telaprincipal.jpg");
+    background-color: #594c2a;
     background-size: cover;
     background-position: center;
-    height: 400px;
+    height: 200px;
     padding: 50px;
     text-align: center;
 }
@@ -198,6 +198,15 @@ header {
 
 #description-container {
     margin-top: 30px;
+}
+
+#info-container .already-joined-msg {
+    margin: 15px 0;
+    color: #004085;
+    background-color: #cce5ff;
+    border: 1px solid #b8daff;
+    padding: 10px;
+    width: 275px;
 }
 
 /* DASHBOARD */

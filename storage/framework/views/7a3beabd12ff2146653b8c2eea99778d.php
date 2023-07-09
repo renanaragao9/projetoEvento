@@ -2,14 +2,14 @@
 
 <?php $__env->startSection('content'); ?>
 
-     <div class="col-md-12" id="search-container">
+    <div class="col-md-12" id="search-container">
         <h1>Busque um evento</h1>
         <form action="/" method="GET">
             <input type="text" name="search" class="form-control" id="search" placeholder="Procurar...">
         </form>
-     </div> 
+    </div> 
 
-     <div class="col-md-12" id="events-container">
+    <div class="col-md-12" id="events-container">
         <?php if($search): ?>
             <h2>Buscando por: <?php echo e($search); ?></h2>
         <?php else: ?>
@@ -36,7 +36,7 @@
                 <p>Não há eventos disponíveis</p>
             <?php endif; ?>
         </div>
-     </div>
+    </div>
 <?php $__env->stopSection(); ?>
   
 <?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\projetoEvento\FreeEvents\resources\views/welcome.blade.php ENDPATH**/ ?>
