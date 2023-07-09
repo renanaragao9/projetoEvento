@@ -63,7 +63,13 @@
                             <td scropt="row"><?php echo e($loop->index + 1); ?></td>
                             <td><a href="/events/<?php echo e($event->id); ?>"><?php echo e($event->title); ?></a></td>
                             <td><?php echo e(count($event->users)); ?></td>
-                            <td> <a href="#">Sair do evento</a> </td>
+                            <td> 
+                                <form action="/events/leave/<?php echo e($event->id); ?>" method="POST">
+                                <?php echo csrf_field(); ?>
+                                <?php echo method_field("DELETE"); ?>
+                                    <button type="submit" class="btn btn-danger delete-btn"> <ion-icon name="trash-outline"></ion-icon>Sair do Evento</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>

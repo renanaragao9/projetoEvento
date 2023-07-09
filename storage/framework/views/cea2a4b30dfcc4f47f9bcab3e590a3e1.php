@@ -15,10 +15,14 @@
                 <p class="event-city"><ion-icon name="location-outline"></ion-icon><?php echo e($event->city); ?></p>
                 <p class="events-participants"><ion-icon name="people-outline"></ion-icon><?php echo e(count($event->users)); ?> Participantes</p>
                 <p class="event-owner"><ion-icon name="star-outline"></ion-icon><?php echo e($eventOwner['name']); ?></p>
-                <form action="/events/join/<?php echo e($event->id); ?>" method="POST">
-                <?php echo csrf_field(); ?>
-                    <a href="/events/join/<?php echo e($event->id); ?>" class="btn btn-primary" id="event-submit" onclick="event.preventDefault(); this.closest('form').submit();">Confirmar Presença</a>
-                </form>
+                <?php if(!$hasUserJoined): ?>
+                    <form action="/events/join/<?php echo e($event->id); ?>" method="POST">
+                    <?php echo csrf_field(); ?>
+                        <a href="/events/join/<?php echo e($event->id); ?>" class="btn btn-primary" id="event-submit" onclick="event.preventDefault(); this.closest('form').submit();">Confirmar Presença</a>
+                    </form>
+                <?php else: ?>
+                    <p class="already-joined-msg">Você já está participando deste evento!</p>
+                <?php endif; ?>
                 <h3>O evento conta com:</h3>
                 <ul id="items-list">
                     <?php $__currentLoopData = $event->items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
