@@ -84,6 +84,7 @@ header {
 /* Events list */
 #events-container {
     padding: 50px;
+    object-fit: cover;
 }
 
 #events-container h2 {
@@ -108,7 +109,7 @@ header {
 }
 
 #events-container img {
-    max-height: 150px;
+    max-height: 350px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -244,3 +245,8 @@ footer p {
     margin-bottom: 0;
 }
 
+@media only screen and (max-width: 768px) {
+    #events-container .card {
+        max-width: 100%;
+    }
+}

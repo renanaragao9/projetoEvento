@@ -2518,3 +2518,479 @@
 #48 C:\\laragon\\www\\projetoEvento\\FreeEvents\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\laragon\\\\www\\\\...')
 #49 {main}
 "} 
+[2024-05-10 14:55:54] local.ERROR: SQLSTATE[HY000] [1698] Access denied for user 'root'@'localhost' (Connection: mysql, SQL: select * from `sessions` where `id` = z6vsd0bW7JCLlYPpxX8zYSFv4pXpw0DMTwGCh96o limit 1) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 1698): SQLSTATE[HY000] [1698] Access denied for user 'root'@'localhost' (Connection: mysql, SQL: select * from `sessions` where `id` = z6vsd0bW7JCLlYPpxX8zYSFv4pXpw0DMTwGCh96o limit 1) at /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php:795)
+[stacktrace]
+#0 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(755): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(424): Illuminate\\Database\\Connection->run()
+#2 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2736): Illuminate\\Database\\Connection->select()
+#3 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2724): Illuminate\\Database\\Query\\Builder->runSelect()
+#4 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3278): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#5 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2725): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#6 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php(296): Illuminate\\Database\\Query\\Builder->get()
+#7 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2646): Illuminate\\Database\\Query\\Builder->first()
+#8 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/DatabaseSessionHandler.php(97): Illuminate\\Database\\Query\\Builder->find()
+#9 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Store.php(113): Illuminate\\Session\\DatabaseSessionHandler->read()
+#10 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Store.php(101): Illuminate\\Session\\Store->readFromHandler()
+#11 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Store.php(85): Illuminate\\Session\\Store->loadSession()
+#12 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(147): Illuminate\\Session\\Store->start()
+#13 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Support/helpers.php(307): Illuminate\\Session\\Middleware\\StartSession->Illuminate\\Session\\Middleware\\{closure}()
+#14 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(148): tap()
+#15 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(116): Illuminate\\Session\\Middleware\\StartSession->startSession()
+#16 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest()
+#17 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle()
+#18 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#19 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#20 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle()
+#22 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\\Pipeline\\Pipeline->then()
+#24 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(777): Illuminate\\Routing\\Router->runRouteWithinStack()
+#25 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(741): Illuminate\\Routing\\Router->runRoute()
+#26 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(730): Illuminate\\Routing\\Router->dispatchToRoute()
+#27 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\\Routing\\Router->dispatch()
+#28 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#29 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Livewire\\DisableBrowserCache->handle()
+#31 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#33 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#34 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#35 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#36 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#37 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#39 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#41 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#42 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#43 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#44 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#45 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#46 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then()
+#47 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#48 /home/izadora/Documentos/Outros Projetos/projetoEvento/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
+#49 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('...')
+#50 {main}
+
+[previous exception] [object] (PDOException(code: 1698): SQLSTATE[HY000] [1698] Access denied for user 'root'@'localhost' at /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:65)
+[stacktrace]
+#0 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(65): PDO->__construct()
+#1 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(45): Illuminate\\Database\\Connectors\\Connector->createPdoConnection()
+#2 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection()
+#3 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect()
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#5 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1275): call_user_func()
+#6 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1311): Illuminate\\Database\\Connection->getPdo()
+#7 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(521): Illuminate\\Database\\Connection->getReadPdo()
+#8 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(416): Illuminate\\Database\\Connection->getPdoForSelect()
+#9 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(788): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#10 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(755): Illuminate\\Database\\Connection->runQueryCallback()
+#11 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(424): Illuminate\\Database\\Connection->run()
+#12 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2736): Illuminate\\Database\\Connection->select()
+#13 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2724): Illuminate\\Database\\Query\\Builder->runSelect()
+#14 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3278): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#15 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2725): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#16 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php(296): Illuminate\\Database\\Query\\Builder->get()
+#17 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2646): Illuminate\\Database\\Query\\Builder->first()
+#18 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/DatabaseSessionHandler.php(97): Illuminate\\Database\\Query\\Builder->find()
+#19 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Store.php(113): Illuminate\\Session\\DatabaseSessionHandler->read()
+#20 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Store.php(101): Illuminate\\Session\\Store->readFromHandler()
+#21 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Store.php(85): Illuminate\\Session\\Store->loadSession()
+#22 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(147): Illuminate\\Session\\Store->start()
+#23 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Support/helpers.php(307): Illuminate\\Session\\Middleware\\StartSession->Illuminate\\Session\\Middleware\\{closure}()
+#24 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(148): tap()
+#25 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(116): Illuminate\\Session\\Middleware\\StartSession->startSession()
+#26 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest()
+#27 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle()
+#28 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#30 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle()
+#32 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\\Pipeline\\Pipeline->then()
+#34 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(777): Illuminate\\Routing\\Router->runRouteWithinStack()
+#35 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(741): Illuminate\\Routing\\Router->runRoute()
+#36 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(730): Illuminate\\Routing\\Router->dispatchToRoute()
+#37 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\\Routing\\Router->dispatch()
+#38 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#39 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Livewire\\DisableBrowserCache->handle()
+#41 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#42 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#43 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#44 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#45 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#46 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#47 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#48 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#49 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#50 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#51 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#52 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#53 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#54 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#55 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#56 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then()
+#57 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#58 /home/izadora/Documentos/Outros Projetos/projetoEvento/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
+#59 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('...')
+#60 {main}
+"} 
+[2024-05-10 14:59:49] local.ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hdcevents.sessions' doesn't exist (Connection: mysql, SQL: select * from `sessions` where `id` = 7d8YFr9pvgtAG1RXpcRQ64ALBk50SbZ7Bt2UPf9P limit 1) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S02): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hdcevents.sessions' doesn't exist (Connection: mysql, SQL: select * from `sessions` where `id` = 7d8YFr9pvgtAG1RXpcRQ64ALBk50SbZ7Bt2UPf9P limit 1) at /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php:795)
+[stacktrace]
+#0 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(755): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(424): Illuminate\\Database\\Connection->run()
+#2 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2736): Illuminate\\Database\\Connection->select()
+#3 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2724): Illuminate\\Database\\Query\\Builder->runSelect()
+#4 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3278): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#5 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2725): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#6 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php(296): Illuminate\\Database\\Query\\Builder->get()
+#7 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2646): Illuminate\\Database\\Query\\Builder->first()
+#8 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/DatabaseSessionHandler.php(97): Illuminate\\Database\\Query\\Builder->find()
+#9 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Store.php(113): Illuminate\\Session\\DatabaseSessionHandler->read()
+#10 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Store.php(101): Illuminate\\Session\\Store->readFromHandler()
+#11 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Store.php(85): Illuminate\\Session\\Store->loadSession()
+#12 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(147): Illuminate\\Session\\Store->start()
+#13 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Support/helpers.php(307): Illuminate\\Session\\Middleware\\StartSession->Illuminate\\Session\\Middleware\\{closure}()
+#14 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(148): tap()
+#15 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(116): Illuminate\\Session\\Middleware\\StartSession->startSession()
+#16 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest()
+#17 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle()
+#18 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#19 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#20 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle()
+#22 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\\Pipeline\\Pipeline->then()
+#24 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(777): Illuminate\\Routing\\Router->runRouteWithinStack()
+#25 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(741): Illuminate\\Routing\\Router->runRoute()
+#26 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(730): Illuminate\\Routing\\Router->dispatchToRoute()
+#27 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\\Routing\\Router->dispatch()
+#28 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#29 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Livewire\\DisableBrowserCache->handle()
+#31 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#33 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#34 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#35 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#36 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#37 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#39 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#41 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#42 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#43 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#44 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#45 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#46 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then()
+#47 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#48 /home/izadora/Documentos/Outros Projetos/projetoEvento/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
+#49 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('...')
+#50 {main}
+
+[previous exception] [object] (PDOException(code: 42S02): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hdcevents.sessions' doesn't exist at /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php:416)
+[stacktrace]
+#0 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(416): PDO->prepare()
+#1 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(788): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#2 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(755): Illuminate\\Database\\Connection->runQueryCallback()
+#3 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(424): Illuminate\\Database\\Connection->run()
+#4 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2736): Illuminate\\Database\\Connection->select()
+#5 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2724): Illuminate\\Database\\Query\\Builder->runSelect()
+#6 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3278): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#7 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2725): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#8 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php(296): Illuminate\\Database\\Query\\Builder->get()
+#9 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2646): Illuminate\\Database\\Query\\Builder->first()
+#10 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/DatabaseSessionHandler.php(97): Illuminate\\Database\\Query\\Builder->find()
+#11 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Store.php(113): Illuminate\\Session\\DatabaseSessionHandler->read()
+#12 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Store.php(101): Illuminate\\Session\\Store->readFromHandler()
+#13 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Store.php(85): Illuminate\\Session\\Store->loadSession()
+#14 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(147): Illuminate\\Session\\Store->start()
+#15 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Support/helpers.php(307): Illuminate\\Session\\Middleware\\StartSession->Illuminate\\Session\\Middleware\\{closure}()
+#16 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(148): tap()
+#17 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(116): Illuminate\\Session\\Middleware\\StartSession->startSession()
+#18 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest()
+#19 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle()
+#20 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#22 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle()
+#24 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\\Pipeline\\Pipeline->then()
+#26 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(777): Illuminate\\Routing\\Router->runRouteWithinStack()
+#27 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(741): Illuminate\\Routing\\Router->runRoute()
+#28 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(730): Illuminate\\Routing\\Router->dispatchToRoute()
+#29 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\\Routing\\Router->dispatch()
+#30 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#31 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Livewire\\DisableBrowserCache->handle()
+#33 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#35 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#36 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#37 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#38 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#39 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#41 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#42 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#43 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#44 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#45 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#46 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#47 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#48 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then()
+#49 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#50 /home/izadora/Documentos/Outros Projetos/projetoEvento/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
+#51 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('...')
+#52 {main}
+"} 
+[2024-05-10 15:01:01] local.ERROR: Command "make:migrations" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:livewire
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:test {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:migrations\" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:livewire
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:test at /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/symfony/console/Application.php:725)
+[stacktrace]
+#0 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/symfony/console/Application.php(262): Symfony\\Component\\Console\\Application->find()
+#1 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/symfony/console/Application.php(174): Symfony\\Component\\Console\\Application->doRun()
+#2 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(200): Symfony\\Component\\Console\\Application->run()
+#3 /home/izadora/Documentos/Outros Projetos/projetoEvento/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#4 {main}
+"} 
+[2024-05-10 15:01:28] local.ERROR: Command "make:migrations" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:livewire
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:test {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:migrations\" is not defined.
+
+Did you mean one of these?
+    make:cast
+    make:channel
+    make:command
+    make:component
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:livewire
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:test at /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/symfony/console/Application.php:725)
+[stacktrace]
+#0 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/symfony/console/Application.php(262): Symfony\\Component\\Console\\Application->find()
+#1 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/symfony/console/Application.php(174): Symfony\\Component\\Console\\Application->doRun()
+#2 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(200): Symfony\\Component\\Console\\Application->run()
+#3 /home/izadora/Documentos/Outros Projetos/projetoEvento/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#4 {main}
+"} 
+[2024-05-10 15:06:07] local.ERROR: SQLSTATE[HY000]: General error: 1364 Field 'image' doesn't have a default value (Connection: mysql, SQL: insert into `events` (`title`, `date`, `city`, `private`, `description`, `items`, `user_id`, `updated_at`, `created_at`) values (Festa do Anselmo, 2024-05-11 00:00:00, Campo do America, 1, Racha dos cria, ["Cadeiras","Open Bar","Open Food"], 1, 2024-05-10 15:06:07, 2024-05-10 15:06:07)) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: HY000): SQLSTATE[HY000]: General error: 1364 Field 'image' doesn't have a default value (Connection: mysql, SQL: insert into `events` (`title`, `date`, `city`, `private`, `description`, `items`, `user_id`, `updated_at`, `created_at`) values (Festa do Anselmo, 2024-05-11 00:00:00, Campo do America, 1, Racha dos cria, [\"Cadeiras\",\"Open Bar\",\"Open Food\"], 1, 2024-05-10 15:06:07, 2024-05-10 15:06:07)) at /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php:795)
+[stacktrace]
+#0 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(755): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(581): Illuminate\\Database\\Connection->run()
+#2 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(533): Illuminate\\Database\\Connection->statement()
+#3 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php(32): Illuminate\\Database\\Connection->insert()
+#4 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3371): Illuminate\\Database\\Query\\Processors\\Processor->processInsertGetId()
+#5 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(1922): Illuminate\\Database\\Query\\Builder->insertGetId()
+#6 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1335): Illuminate\\Database\\Eloquent\\Builder->__call()
+#7 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1300): Illuminate\\Database\\Eloquent\\Model->insertAndSetId()
+#8 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1139): Illuminate\\Database\\Eloquent\\Model->performInsert()
+#9 /home/izadora/Documentos/Outros Projetos/projetoEvento/app/Http/Controllers/EventController.php(65): Illuminate\\Database\\Eloquent\\Model->save()
+#10 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\EventController->store()
+#11 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction()
+#12 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#13 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\\Routing\\Route->runController()
+#14 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(799): Illuminate\\Routing\\Route->run()
+#15 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#16 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#18 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#19 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle()
+#20 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle()
+#22 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest()
+#24 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle()
+#25 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#27 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle()
+#29 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\\Pipeline\\Pipeline->then()
+#31 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(777): Illuminate\\Routing\\Router->runRouteWithinStack()
+#32 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(741): Illuminate\\Routing\\Router->runRoute()
+#33 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(730): Illuminate\\Routing\\Router->dispatchToRoute()
+#34 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\\Routing\\Router->dispatch()
+#35 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#36 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#37 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Livewire\\DisableBrowserCache->handle()
+#38 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#40 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#41 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#42 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#43 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#44 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#45 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#46 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#47 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#48 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#49 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#50 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#51 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#52 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#53 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then()
+#54 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#55 /home/izadora/Documentos/Outros Projetos/projetoEvento/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
+#56 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('...')
+#57 {main}
+
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1364 Field 'image' doesn't have a default value at /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php:580)
+[stacktrace]
+#0 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(580): PDOStatement->execute()
+#1 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(788): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#2 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(755): Illuminate\\Database\\Connection->runQueryCallback()
+#3 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(581): Illuminate\\Database\\Connection->run()
+#4 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Connection.php(533): Illuminate\\Database\\Connection->statement()
+#5 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php(32): Illuminate\\Database\\Connection->insert()
+#6 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3371): Illuminate\\Database\\Query\\Processors\\Processor->processInsertGetId()
+#7 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(1922): Illuminate\\Database\\Query\\Builder->insertGetId()
+#8 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1335): Illuminate\\Database\\Eloquent\\Builder->__call()
+#9 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1300): Illuminate\\Database\\Eloquent\\Model->insertAndSetId()
+#10 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1139): Illuminate\\Database\\Eloquent\\Model->performInsert()
+#11 /home/izadora/Documentos/Outros Projetos/projetoEvento/app/Http/Controllers/EventController.php(65): Illuminate\\Database\\Eloquent\\Model->save()
+#12 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\EventController->store()
+#13 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction()
+#14 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#15 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\\Routing\\Route->runController()
+#16 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(799): Illuminate\\Routing\\Route->run()
+#17 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#18 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#19 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#20 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle()
+#22 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle()
+#24 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest()
+#26 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Session\\Middleware\\StartSession->handle()
+#27 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#29 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle()
+#31 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\\Pipeline\\Pipeline->then()
+#33 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(777): Illuminate\\Routing\\Router->runRouteWithinStack()
+#34 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(741): Illuminate\\Routing\\Router->runRoute()
+#35 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Routing/Router.php(730): Illuminate\\Routing\\Router->dispatchToRoute()
+#36 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\\Routing\\Router->dispatch()
+#37 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#38 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/livewire/livewire/src/DisableBrowserCache.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Livewire\\DisableBrowserCache->handle()
+#40 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#42 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#43 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#44 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#45 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#46 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#47 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#48 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#49 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#50 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#51 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#52 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#53 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#54 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#55 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then()
+#56 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#57 /home/izadora/Documentos/Outros Projetos/projetoEvento/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
+#58 /home/izadora/Documentos/Outros Projetos/projetoEvento/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('...')
+#59 {main}
+"} 
