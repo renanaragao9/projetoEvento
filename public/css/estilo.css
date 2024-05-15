@@ -41,18 +41,14 @@ header {
 
 /* NAVBAR */
 
-#navbar img{
-    width: 40px;
-}
-
 #navbar {
     justify-content: space-between;
-    background-color: #fff;
     padding: 5px 0;
+    
 }
 
 #navbar a {
-    font-size: 14px;
+    font-size: 18px;
     color: #757575;
 }
 
@@ -60,9 +56,12 @@ header {
     color: #f2a340;
 }
 
+#logo-img {
+    width: 80px;
+}
+
 /* Search Container */
 #search-container {
-    background-color: #594c2a;
     background-size: cover;
     background-position: center;
     height: 200px;

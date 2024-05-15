@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'HDC Events'); ?>
+<?php $__env->startSection('title', 'Renan´s Eventos'); ?>
 
 <?php $__env->startSection('content'); ?>
 

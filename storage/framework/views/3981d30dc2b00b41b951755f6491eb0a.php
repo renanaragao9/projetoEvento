@@ -24,46 +24,45 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="collapse navbar-collapse" id="navbar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
                     <a href="/" class="navbar-brand">
-                        <img src="/img/logo-navbar.jpg" alt="HDC Events">
+                        <img src="/img/logo-asla.png" alt="Renan´s Eventos" id="logo-img">
                     </a>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="/" class="nav-link">Eventos</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="/events/create" class="nav-link">Criar Eventos</a>
-                        </li>
-
-                        <?php if(auth()->guard()->check()): ?>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">Eventos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/events/create" class="nav-link">Criar Evento</a>
+                            </li>
+                            <?php if(auth()->guard()->check()): ?>
                             <li class="nav-item">
                                 <a href="/dashboard" class="nav-link">Meus eventos</a>
                             </li>
-
                             <li class="nav-item">
                                 <form action="/logout" method="POST">
-                                <?php echo csrf_field(); ?>
+                                    <?php echo csrf_field(); ?>
                                     <a href="/logout" class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
                                 </form>
                             </li>
-
-                        <?php endif; ?>
-
-                        <?php if(auth()->guard()->guest()): ?>
+                            <?php endif; ?>
+                            <?php if(auth()->guard()->guest()): ?>
                             <li class="nav-item">
                                 <a href="/login" class="nav-link">Entrar</a>
                             </li>
-
                             <li class="nav-item">
                                 <a href="/register" class="nav-link">Cadastrar</a>
-                            </li>   
-                        <?php endif; ?>
-                    </ul>
+                            </li>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
                 </div>
-            </nav>
+            </nav>            
         </header>
         <main>
             <div class="container-fluid">
@@ -81,6 +80,10 @@
         </footer>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <!-- Scripts JavaScript do Bootstrap (jQuery, Popper.js, e Bootstrap JS) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>  
 </html>
 <?php /**PATH /home/izadora/Documentos/Outros Projetos/projetoEvento/resources/views/layouts/main.blade.php ENDPATH**/ ?>
