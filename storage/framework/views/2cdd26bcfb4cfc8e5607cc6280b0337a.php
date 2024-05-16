@@ -1,12 +1,10 @@
-
-
 <?php $__env->startSection('title', 'Editando: ' . $event->title); ?>
 
 <?php $__env->startSection('content'); ?>
 
 <div class="col-md-6 offset-md-3" id="event-create-container">
     <h1>Editando: <?php echo e($event->title); ?></h1>
-    <form action="/events/update/<?php echo e($event->id); ?>" method="POST" enctype="multipart/form-data">
+    <form action=" <?php echo e(route('atualizarEvento', $event->id)); ?>" method="POST" enctype="multipart/form-data">
     <?php echo csrf_field(); ?>
     <?php echo method_field('PUT'); ?>
         <div class="form-group">
@@ -64,7 +62,7 @@
         <div class="form-group">
             <label for="image">Imagem do Evento:</label>
             <input type="file" name="image" class="form-control-file" id="image">
-            <img src="/img/events/<?php echo e($event->image); ?>" alt="<?php echo e($event->title); ?>" class="img-preview">
+            <img src="<?php echo e(asset('img/events/' . $event->image)); ?>" alt="<?php echo e($event->title); ?>" class="img-preview">
         </div>
         
         <input type="submit" class="btn btn-primary" id="button-create" value="Editar Evento!">
@@ -72,4 +70,4 @@
 </div>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\projetoEvento\FreeEvents\resources\views/events/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/izadora/Documentos/Outros Projetos/projetoEvento/resources/views/events/edit.blade.php ENDPATH**/ ?>

@@ -24,13 +24,13 @@
                     @foreach( $events as $event )
                         <tr>
                             <td scropt="row">{{ $loop->index + 1 }}</td>
-                            <td><a href="/events/{{ $event->id }}">{{ $event->title }}</a></td>
+                            <td><a href=" {{route('verEvento', $event->id)}}">{{ $event->title }}</a></td>
                             <td>{{ count($event->users) }}</td>
                             <td>
-                                <a href="/events/edit/{{ $event->id }}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a> 
-                                <form action="/events/{{ $event->id }}" method="POST">
-                                @csrf
-                                @method('DELETE')
+                                <a href=" {{route('editarEvento', $event->id)}}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a> 
+                                <form action="{{route('excluirEvento', $event->id)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
                                     <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon>Deletar</button>
                                 </form>
                             </td>
@@ -39,7 +39,7 @@
                 </tbody>
             </table>
         @else
-            <p>Você ainda não tem eventos, <a href="/events/create">Criar evento</a></p>
+            <p>Você ainda não tem eventos, <a href="{{ route('criarEvento') }}">Criar evento</a></p>
         @endif
     </div>
 
@@ -63,12 +63,12 @@
                     @foreach( $eventsAsParticipant as $event )
                         <tr>
                             <td scropt="row">{{ $loop->index + 1 }}</td>
-                            <td><a href="/events/{{ $event->id }}">{{ $event->title }}</a></td>
+                            <td><a href="{{ route('verEvento', $event->id) }}">{{ $event->title }}</a></td>
                             <td>{{ count($event->users) }}</td>
                             <td> 
-                                <form action="/events/leave/{{ $event->id }}" method="POST">
-                                @csrf
-                                @method("DELETE")
+                                <form action=" {{ route('deixarEvento', $event->id) }}" method="POST">
+                                    @csrf
+                                    @method("DELETE")
                                     <button type="submit" class="btn btn-danger delete-btn"> <ion-icon name="trash-outline"></ion-icon>Sair do Evento</button>
                                 </form>
                             </td>

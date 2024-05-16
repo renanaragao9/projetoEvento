@@ -21,10 +21,10 @@
             <div class="col-md-4">
                 <div class="card login-card">
                     <div class="card-body text-center">
-
+                        
                         <img src="{{ asset('img/logo-evento.png') }}" alt="Logo" id="imagem-aut">
 
-                        <h3 id="titulo-login">Redefinir senha</h3>
+                        <h3 id="titulo-login">Redefinir Senha</h3>
 
                         <form method="POST" action="{{ route('password.email') }}">
                             @csrf
@@ -33,10 +33,10 @@
                             </div>
 
                             <div class="form-group">
-                              <a href="{{ route('register') }}">Não possui cadastro ?</a>
+                              <a href="{{ route('login') }}">Voltar</a>
                           </div>
 
-                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                            <button type="submit" class="btn btn-primary btn-block">Enviar</button>
                         </form>
                     </div>
 

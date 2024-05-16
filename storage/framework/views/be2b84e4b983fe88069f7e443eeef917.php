@@ -5,7 +5,7 @@
     <div class="col-md-10 offset-md-1">
         <div class="row">
             <div class="col-md-6" id="image-container">
-                <img src="/img/events/<?php echo e($event->image); ?>" class="img-fluid" alt="<?php echo e($event->title); ?>">
+                <img src="<?php echo e(asset('img/events/' . $event->image)); ?>" class="img-fluid" alt="<?php echo e($event->title); ?>">
             </div>
             
             <div class="col-md-6" id="info-container">
@@ -13,15 +13,18 @@
                 <p class="event-city"><ion-icon name="location-outline"></ion-icon><?php echo e($event->city); ?></p>
                 <p class="events-participants"><ion-icon name="people-outline"></ion-icon><?php echo e(count($event->users)); ?> Participantes</p>
                 <p class="event-owner"><ion-icon name="star-outline"></ion-icon><?php echo e($eventOwner['name']); ?></p>
+                
                 <?php if(!$hasUserJoined): ?>
-                    <form action="/events/join/<?php echo e($event->id); ?>" method="POST">
-                    <?php echo csrf_field(); ?>
-                        <a href="/events/join/<?php echo e($event->id); ?>" class="btn btn-primary" id="event-submit" onclick="event.preventDefault(); this.closest('form').submit();">Confirmar Presença</a>
+                    <form action=" <?php echo e(route('entrarEvento', $event->id)); ?>" method="POST">
+                        <?php echo csrf_field(); ?>
+                        <a href="" class="btn btn-primary" id="event-submit" onclick="event.preventDefault(); this.closest('form').submit();">Confirmar Presença</a>
                     </form>
                 <?php else: ?>
                     <p class="already-joined-msg">Você já está participando deste evento!</p>
                 <?php endif; ?>
+                
                 <h3>O evento conta com:</h3>
+                
                 <ul id="items-list">
                     <?php $__currentLoopData = $event->items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li><ion-icon name="play-outline"></ion-icon><span><?php echo e($item); ?></span></li>

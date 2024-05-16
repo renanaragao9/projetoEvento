@@ -14,17 +14,16 @@ use App\Http\Controllers\EventController;
 |
 */
 
-Route::get('/',[EventController::class, 'index']);
-Route::get('/events/create',[EventController::class, 'create'])->middleware('auth');
-Route::get('/events/{id}', [EventController::class, 'show']);   
-Route::post('/events', [EventController::class, 'store']);
-Route::delete('/events/{id}', [EventController::class, 'destroy'])->middleware('auth');
-Route::get('/events/edit/{id}', [EventController::class,'edit'])->middleware('auth');
-Route::put('/events/update/{id}', [EventController::class, 'update'])->middleware('auth');
+Route::get('/',[EventController::class, 'index'])->name('inicio');
+Route::get('/verEvento/{id}', [EventController::class, 'show'])->name('verEvento');
 
-
-Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
-
-Route::post('/events/join/{id}', [EventController::class, 'joinEvent'])->middleware('auth');
-
-Route::delete('/events/leave/{id}', [EventController::class, 'leaveEvent'])->middleware('auth');
+Route::middleware(['auth'])->group(function() { 
+    Route::get   ('/evento/criar',[EventController::class, 'create'])->name('criarEvento');
+    Route::post  ('/Criando', [EventController::class, 'store'])->name('enviarEvento');
+    Route::delete('/evento/{id}', [EventController::class, 'destroy'])->name('excluirEvento');
+    Route::get   ('/evento/editar/{id}', [EventController::class,'edit'])->name('editarEvento');
+    Route::put   ('/evento/atualizar/{id}', [EventController::class, 'update'])->name('atualizarEvento');
+    Route::get   ('/dashboard', [EventController::class, 'dashboard'])->name('meuEvento');
+    Route::post  ('/evento/unir/{id}', [EventController::class, 'joinEvent'])->name('entrarEvento');
+    Route::delete('/evento/sair/{id}', [EventController::class, 'leaveEvent'])->name('deixarEvento');
+});
