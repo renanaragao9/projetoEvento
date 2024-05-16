@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Entrar</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/aut.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/aut.css')); ?>">
 </head>
 
 <body>
@@ -22,27 +22,19 @@
                 <div class="card login-card">
                     <div class="card-body text-center">
 
-                        <img src="{{ asset('img/logo-evento.png') }}" alt="Logo" id="imagem-aut">
+                        <img src="<?php echo e(asset('img/logo-evento.png')); ?>" alt="Logo" id="imagem-aut">
 
-                        <h3 id="titulo-login"> Cadastro </h3>
+                        <h3 id="titulo-login"> Entrar </h3>
 
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
-
-                            <div class="form-group">
-                                <input name="name" type="text" class="form-control" placeholder="Nome Completo">
-                            </div>
-                            
+                        <form method="POST" action="<?php echo e(route('login')); ?>">
+                            <?php echo csrf_field(); ?>
                             <div class="form-group">
                                 <input name="email" type="text" class="form-control" placeholder="Email">
                             </div>
 
                             <div class="form-group">
-                                <input name="password" type="password" class="form-control" placeholder="Senha" id="password">
-                            </div>
-
-                            <div class="form-group">
-                                <input name="password_confirmation"  type="password" class="form-control" placeholder="Confirmar Senha" id="confirm-password">
+                                <input name="password" type="password" class="form-control" placeholder="Senha"
+                                    id="password">
                             </div>
 
                             <div class="form-group form-check d-flex">
@@ -51,10 +43,14 @@
                             </div>
 
                             <div class="form-group">
-                                <a href="{{ route('login') }}">Já possui cadastro ?</a>
+                                <a href="<?php echo e(route('password.request')); ?>">Esqueceu a senha ?</a>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                            <div class="form-group">
+                              <a href="<?php echo e(route('register')); ?>">Não possui cadastro ?</a>
+                          </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
                         </form>
                     </div>
 
@@ -76,15 +72,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             const showPasswordCheckbox = document.getElementById('showPassword');
             const passwordInput = document.getElementById('password');
-            const confirmPasswordInput = document.getElementById('confirm-password');
 
             showPasswordCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     passwordInput.setAttribute('type', 'text');
-                    confirmPasswordInput.setAttribute('type', 'text');
                 } else {
                     passwordInput.setAttribute('type', 'password');
-                    confirmPasswordInput.setAttribute('type', 'password');
                 }
             });
         });
@@ -92,3 +85,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\laragon\www\projetoEvento\resources\views/auth/login.blade.php ENDPATH**/ ?>

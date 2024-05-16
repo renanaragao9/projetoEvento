@@ -1,0 +1,21 @@
+body {
+    background-color: #f8f9fa;
+}
+.login-card {
+    margin-top: 20px;
+}
+.card-footer {
+    background-color: #f8f9fa;
+    border-top: none;
+}
+
+#imagem-aut {
+    width: 250px;
+}
+
+#titulo-login {
+    font-size: 28px;
+    margin-top: -25px;
+    margin-bottom: 35px;
+    font-weight: bolder;
+}

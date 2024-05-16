@@ -12,7 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/aut.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/aut.css')); ?>">
 </head>
 
 <body>
@@ -22,18 +22,18 @@
                 <div class="card login-card">
                     <div class="card-body text-center">
 
-                        <img src="{{ asset('img/logo-evento.png') }}" alt="Logo" id="imagem-aut">
+                        <img src="<?php echo e(asset('img/logo-evento.png')); ?>" alt="Logo" id="imagem-aut">
 
                         <h3 id="titulo-login">Redefinir senha</h3>
 
-                        <form method="POST" action="{{ route('password.email') }}">
-                            @csrf
+                        <form method="POST" action="<?php echo e(route('password.email')); ?>">
+                            <?php echo csrf_field(); ?>
                             <div class="form-group">
                                 <input name="email" type="text" class="form-control" placeholder="Email">
                             </div>
 
                             <div class="form-group">
-                              <a href="{{ route('register') }}">Não possui cadastro ?</a>
+                              <a href="<?php echo e(route('register')); ?>">Não possui cadastro ?</a>
                           </div>
 
                             <button type="submit" class="btn btn-primary btn-block">Entrar</button>
@@ -57,3 +57,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\laragon\www\projetoEvento\resources\views/auth/forgot-password.blade.php ENDPATH**/ ?>
