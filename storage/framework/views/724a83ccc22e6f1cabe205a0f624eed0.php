@@ -22,13 +22,13 @@
                     <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                             <td scropt="row"><?php echo e($loop->index + 1); ?></td>
-                            <td><a href="/events/<?php echo e($event->id); ?>"><?php echo e($event->title); ?></a></td>
+                            <td><a href=" <?php echo e(route('verEvento', $event->id)); ?>"><?php echo e($event->title); ?></a></td>
                             <td><?php echo e(count($event->users)); ?></td>
                             <td>
-                                <a href="/events/edit/<?php echo e($event->id); ?>" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a> 
-                                <form action="/events/<?php echo e($event->id); ?>" method="POST">
-                                <?php echo csrf_field(); ?>
-                                <?php echo method_field('DELETE'); ?>
+                                <a href=" <?php echo e(route('editarEvento', $event->id)); ?>" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a> 
+                                <form action="<?php echo e(route('excluirEvento', $event->id)); ?>" method="POST">
+                                    <?php echo csrf_field(); ?>
+                                    <?php echo method_field('DELETE'); ?>
                                     <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon>Deletar</button>
                                 </form>
                             </td>
@@ -37,7 +37,7 @@
                 </tbody>
             </table>
         <?php else: ?>
-            <p>Você ainda não tem eventos, <a href="/events/create">Criar evento</a></p>
+            <p>Você ainda não tem eventos, <a href="<?php echo e(route('criarEvento')); ?>">Criar evento</a></p>
         <?php endif; ?>
     </div>
 
@@ -61,12 +61,12 @@
                     <?php $__currentLoopData = $eventsAsParticipant; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                             <td scropt="row"><?php echo e($loop->index + 1); ?></td>
-                            <td><a href="/events/<?php echo e($event->id); ?>"><?php echo e($event->title); ?></a></td>
+                            <td><a href="<?php echo e(route('verEvento', $event->id)); ?>"><?php echo e($event->title); ?></a></td>
                             <td><?php echo e(count($event->users)); ?></td>
                             <td> 
-                                <form action="/events/leave/<?php echo e($event->id); ?>" method="POST">
-                                <?php echo csrf_field(); ?>
-                                <?php echo method_field("DELETE"); ?>
+                                <form action=" <?php echo e(route('deixarEvento', $event->id)); ?>" method="POST">
+                                    <?php echo csrf_field(); ?>
+                                    <?php echo method_field("DELETE"); ?>
                                     <button type="submit" class="btn btn-danger delete-btn"> <ion-icon name="trash-outline"></ion-icon>Sair do Evento</button>
                                 </form>
                             </td>

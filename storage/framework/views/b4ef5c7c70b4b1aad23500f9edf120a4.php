@@ -4,7 +4,7 @@
     
     <div class="col-md-6 offset-md-3" id="event-create-container">
         <h1>Crie o seu evento</h1>
-        <form action="/events" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo e(route('enviarEvento')); ?>" method="POST" enctype="multipart/form-data">
         <?php echo csrf_field(); ?>
             <div class="form-group">
                 <label for="title">Evento:</label>

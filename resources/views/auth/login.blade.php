@@ -21,7 +21,6 @@
             <div class="col-md-4">
                 <div class="card login-card">
                     <div class="card-body text-center">
-
                         <img src="{{ asset('img/logo-evento.png') }}" alt="Logo" id="imagem-aut">
 
                         <h3 id="titulo-login"> Entrar </h3>
@@ -48,7 +47,11 @@
 
                             <div class="form-group">
                               <a href="{{ route('register') }}">Não possui cadastro ?</a>
-                          </div>
+                            </div>
+
+                            <div class="form-group">
+                                <a href="{{ route('inicio') }}"><i class="fa fa-arrow-left"></i> Voltar</a>
+                              </div>
 
                             <button type="submit" class="btn btn-primary btn-block">Entrar</button>
                         </form>

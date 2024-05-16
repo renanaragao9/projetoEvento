@@ -6,7 +6,7 @@
 
 <div class="col-md-6 offset-md-3" id="event-create-container">
     <h1>Editando: {{ $event->title }}</h1>
-    <form action="/events/update/{{ $event->id }}" method="POST" enctype="multipart/form-data">
+    <form action=" {{route('atualizarEvento', $event->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
         <div class="form-group">
@@ -64,7 +64,7 @@
         <div class="form-group">
             <label for="image">Imagem do Evento:</label>
             <input type="file" name="image" class="form-control-file" id="image">
-            <img src="/img/events/{{ $event->image }}" alt="{{ $event->title }}" class="img-preview">
+            <img src="{{ asset('img/events/' . $event->image) }}" alt="{{ $event->title }}" class="img-preview">
         </div>
         
         <input type="submit" class="btn btn-primary" id="button-create" value="Editar Evento!">
