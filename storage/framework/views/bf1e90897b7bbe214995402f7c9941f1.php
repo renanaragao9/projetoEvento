@@ -12,7 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/aut.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/aut.css')); ?>">
 </head>
 
 <body>
@@ -22,12 +22,12 @@
                 <div class="card login-card">
                     <div class="card-body text-center">
 
-                        <img src="{{ asset('img/logo-evento.png') }}" alt="Logo" id="imagem-aut">
+                        <img src="<?php echo e(asset('img/logo-evento.png')); ?>" alt="Logo" id="imagem-aut">
 
                         <h3 id="titulo-login"> Cadastro </h3>
 
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
+                        <form method="POST" action="<?php echo e(route('register')); ?>">
+                            <?php echo csrf_field(); ?>
 
                             <div class="form-group">
                                 <input name="name" type="text" class="form-control" placeholder="Nome Completo">
@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="form-group">
-                                <a href="{{ route('login') }}">Já possui cadastro ?</a>
+                                <a href="<?php echo e(route('login')); ?>">Já possui cadastro ?</a>
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-block">Enviar</button>
@@ -92,3 +92,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\laragon\www\projetoEvento\resources\views/auth/register.blade.php ENDPATH**/ ?>
