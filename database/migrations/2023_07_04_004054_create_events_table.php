@@ -15,7 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->string('cep');
+            $table->string('road');
+            $table->string('num');
+            $table->string('neighborhood');
             $table->string('city');
+            $table->string('state');
+            $table->string('time');
             $table->boolean('private');
             $table->timestamps();
         });
