@@ -108,9 +108,14 @@ header {
 }
 
 #events-container img {
-    max-height: 350px;
+    height: 225px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+.card {
+    background-color: #7575750a;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .card .card-date {
@@ -120,14 +125,22 @@ header {
 
 .card .card-title {
     color: #212121;
-    font-size: 20px;
+    font-size: 20px;    
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-.card-participants {
-    font-size: 14px;
-    color: #757575;
+.card .card-info {
+    font-size: 16px;
+    color: #3d3b3b;
+    margin: 5px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+#card-icon-status {
+    font-size: 25px; 
+    color: yellow;
 }
 
 /* EVENT CREATE PAGE */
@@ -232,8 +245,8 @@ header {
 /* FOOTER */
 footer {
     text-align: center;
-    background-color: #353e48;
-    color: #fff;
+    background-color: #cbcccea1;
+    color: #212121;
     padding: 30px;
     position: absolute;
     bottom: 0;
@@ -247,5 +260,10 @@ footer p {
 @media only screen and (max-width: 768px) {
     #events-container .card {
         max-width: 100%;
+    }
+
+    #search-container form {
+        width: 100%;
+        margin: 0 auto;
     }
 }
