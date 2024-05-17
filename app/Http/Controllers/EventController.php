@@ -23,6 +23,13 @@ class EventController extends Controller
             $events = Event::all();
         }
 
+        // Loop para pegar o dia da semana
+        foreach ($events as $event) { 
+            $event->diaDaSemana = $this->obterDiaDaSemana($event->date);
+            $event->status = $this->obterStatusDoEvento($event->date);
+        }
+
+
         return view('welcome', ['events' => $events, 'search' => $search]);
     }
 
@@ -172,6 +179,36 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
 
         return redirect('/dashboard')->with('msg', 'Você saiu com sucesso do evento: ' . $event->title) . "!";
+    }
+
+    private function obterDiaDaSemana($data) {
+        
+        // Array com os dias da semana em português
+        $diasDaSemana = [
+            'domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'
+        ];
+        
+        // Converte a data para timestamp
+        $timestamp = strtotime($data);
+        
+        // Obtém o índice do dia da semana (0 para domingo, 6 para sábado)
+        $diaDaSemanaIndice = date('w', $timestamp);
+        
+        // Retorna o nome do dia da semana a partir do índice
+        return $diasDaSemana[$diaDaSemanaIndice];
+    }
+
+    private function obterStatusDoEvento($data) {
+        
+        $hoje = date('Y-m-d');
+        
+        if ($data > $hoje) {
+            return 'Aberto';
+        } elseif ($data == $hoje) {
+            return 'Hoje';
+        } else {
+            return 'Fechado';
+        }
     }
 
 }

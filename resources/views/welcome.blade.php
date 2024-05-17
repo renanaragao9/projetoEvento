@@ -7,9 +7,16 @@
     <div class="col-md-12" id="search-container">
         <h1>Busque um evento</h1>
         <form action="{{route('inicio')}}" method="GET">
-            <input type="text" name="search" class="form-control" id="search" placeholder="Procurar...">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" id="search" placeholder="Procurar...">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        Pesquisar
+                    </button>
+                </div>
+            </div>
         </form>
-    </div> 
+    </div>
 
     <div class="col-md-12" id="events-container">
         @if($search)
@@ -24,12 +31,15 @@
                 <div class="card col-md-3">
                     
                     <img src="{{ asset('img/events/' . $event->image) }}" alt="{{ $event->title }}">
-                    
+                    <ion-icon name="bookmark" class="position-absolute top-0 translate-middle m-3" id="card-icon-status"></ion-icon>
+
                     <div class="card-body">
-                        <p class="card-date">{{ date('d/m/Y', strtotime($event->date)) }}</p>
                         <h5 class="card-title">{{ $event->title }}</h5>
-                        <p class="card-participants">Participantes: {{ count($event->users) }}</p>
-                        <a href="{{ route('verEvento', $event->id) }}" class="btn btn-primary">Saber Mais</a>
+                        <p class="card-info">Status: {{ $event->status }}</p>
+                        <p class="card-info">Data: {{ date('d/m/Y', strtotime($event->date))}} ({{$event->diaDaSemana}})</p>
+                        <p class="card-info">Local: {{ $event->city }}</p>
+                        <p class="card-info">Participantes: {{ count($event->users) }}</p>
+                        <a href="{{ route('verEvento', $event->id) }}" class="btn btn-primary" id="card-button">Saber Mais</a>
                     </div>
                 </div>
             @endforeach
