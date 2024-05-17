@@ -31,7 +31,7 @@
                 <div class="card col-md-3">
                     
                     <img src="{{ asset('img/events/' . $event->image) }}" alt="{{ $event->title }}">
-                    <ion-icon name="bookmark" class="position-absolute top-0 translate-middle m-3" id="card-icon-status"></ion-icon>
+                    <ion-icon name="logo-ionic" class="position-absolute top-0 translate-middle m-3" id="{{$event->classe}}"></ion-icon>
 
                     <div class="card-body">
                         <h5 class="card-title">{{ $event->title }}</h5>

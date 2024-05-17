@@ -5,9 +5,16 @@
     <div class="col-md-12" id="search-container">
         <h1>Busque um evento</h1>
         <form action="<?php echo e(route('inicio')); ?>" method="GET">
-            <input type="text" name="search" class="form-control" id="search" placeholder="Procurar...">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" id="search" placeholder="Procurar...">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        Pesquisar
+                    </button>
+                </div>
+            </div>
         </form>
-    </div> 
+    </div>
 
     <div class="col-md-12" id="events-container">
         <?php if($search): ?>
@@ -22,12 +29,15 @@
                 <div class="card col-md-3">
                     
                     <img src="<?php echo e(asset('img/events/' . $event->image)); ?>" alt="<?php echo e($event->title); ?>">
-                    
+                    <ion-icon name="logo-ionic" class="position-absolute top-0 translate-middle m-3" id="<?php echo e($event->classe); ?>"></ion-icon>
+
                     <div class="card-body">
-                        <p class="card-date"><?php echo e(date('d/m/Y', strtotime($event->date))); ?></p>
                         <h5 class="card-title"><?php echo e($event->title); ?></h5>
-                        <p class="card-participants">Participantes: <?php echo e(count($event->users)); ?></p>
-                        <a href="<?php echo e(route('verEvento', $event->id)); ?>" class="btn btn-primary">Saber Mais</a>
+                        <p class="card-info">Status: <?php echo e($event->status); ?></p>
+                        <p class="card-info">Data: <?php echo e(date('d/m/Y', strtotime($event->date))); ?> (<?php echo e($event->diaDaSemana); ?>)</p>
+                        <p class="card-info">Local: <?php echo e($event->city); ?></p>
+                        <p class="card-info">Participantes: <?php echo e(count($event->users)); ?></p>
+                        <a href="<?php echo e(route('verEvento', $event->id)); ?>" class="btn btn-primary" id="card-button">Saber Mais</a>
                     </div>
                 </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

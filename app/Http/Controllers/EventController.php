@@ -26,7 +26,10 @@ class EventController extends Controller
         // Loop para pegar o dia da semana
         foreach ($events as $event) { 
             $event->diaDaSemana = $this->obterDiaDaSemana($event->date);
-            $event->status = $this->obterStatusDoEvento($event->date);
+            $statusInfo = $this->obterStatusDoEvento($event->date);
+            $event->status = $statusInfo['status'];
+            $event->classe = $statusInfo['classe'];
+            
         }
 
 
@@ -199,16 +202,22 @@ class EventController extends Controller
     }
 
     private function obterStatusDoEvento($data) {
-        
         $hoje = date('Y-m-d');
-        
+        $status = '';
+        $classe = '';
+
         if ($data > $hoje) {
-            return 'Aberto';
+            $status = 'Aberto';
+            $classe = 'card-icon-green';
         } elseif ($data == $hoje) {
-            return 'Hoje';
+            $status = 'Hoje';
+            $classe = 'card-icon-yellow';
         } else {
-            return 'Fechado';
+            $status = 'Fechado';
+            $classe = 'card-icon-red';
         }
+
+        return ['status' => $status, 'classe' => $classe];
     }
 
 }
