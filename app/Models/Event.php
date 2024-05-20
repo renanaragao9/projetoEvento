@@ -11,6 +11,7 @@ class Event extends Model
 
     protected $casts = [
         'items' => 'array',
+        'image' => 'array',
         'date'=>'datetime'
     ];
 

@@ -44,28 +44,55 @@ class EventController extends Controller
     //Retorna os dados enviados da pagina de criação
     public function store(Request $request) {
 
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'date' => 'required|date',
+            'cep' => 'required|string|max:255',
+            'private' => 'required|boolean',
+            'time' => 'required|date_format:H:i',
+            'description' => 'required|string',
+            'items' => 'required|array',
+            'items.*' => 'string|max:255',
+        ], [
+            'title.required' => 'Preencha o título',
+            'date.required' => 'Preencha a data',
+            'cep.required' => 'Preencha o CEP',
+            'private.required' => 'Selecione se o evento é privado ou não',
+            'time.required' => 'Preencha o horário',
+            'description.required' => 'Preencha a descrição',
+            'items.required' => 'Preencha pelo menos um item',
+            'items.*.required' => 'Preencha todos os itens',
+        ]);
+
         $event = new Event;
 
         $event->title = $request->title;
         $event->date = $request->date;
+        $event->cep = $request->cep;
+        $event->road = $request->road;
+        $event->num = $request->num;
+        $event->neighborhood = $request->neighborhood;
         $event->city = $request->city;
+        $event->state = $request->state;
         $event->private = $request->private;
+        $event->time = $request->time;
         $event->description = $request->description;
         $event->items = $request->items;
 
-            // Image Upload
-            if($request->hasFile('image') && $request->file('image')->isValid()) {
-                
-                $requestImage = $request->image;
-
-                $extension = $requestImage->extension();
-
-                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-
-                $requestImage->move(public_path('img/events'), $imageName);
-
-                $event->image = $imageName;
+        $images = [];
+        if($request->hasFile('image')) {
+            foreach($request->file('image') as $image) {
+                if ($image->isValid()) {
+                    $extension = $image->extension();
+                    $imageName = md5($image->getClientOriginalName() . strtotime("now")) . "." . $extension;
+                    $image->move(public_path('img/events'), $imageName);
+                    $images[] = $imageName;
+                }
             }
+        }
+    
+        // Convertendo o array de nomes de arquivos de imagens para JSON
+        $event->image = json_encode($images);
 
         // Pega o id do usuario logado
         $user = auth()->user();

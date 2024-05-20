@@ -7,12 +7,38 @@
     <div class="col-md-10 offset-md-1">
         <div class="row">
             <div class="col-md-6" id="image-container">
-                <img src="{{ asset('img/events/' . $event->image) }}" class="img-fluid" alt="{{ $event->title }}">
+                @if ($event->image)
+                    @php
+                        $images = json_decode($event->image);
+                    @endphp
+            
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach ($images as $index => $image)
+                                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                    <div class="position-relative">
+                                        <img src="{{ asset('img/events/' . $image) }}" class="d-block w-100" id="show-image" alt="{{ $event->title }}">
+                                        <a href="{{ asset('img/events/' . $image) }}" data-lightbox="event-gallery" data-title="{{ $event->title }}" class="btn btn-zoom d-none"></a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+            
+                    <!-- Adicione os controles abaixo do carousel com o botão de tela cheia no centro -->
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <a class="btn btn-primary" href="#carouselExampleIndicators" role="button" data-slide="prev">Anterior</a>
+                        <button id="fullscreen-button" class="btn btn-secondary">Tela Cheia</button>
+                        <a class="btn btn-primary" href="#carouselExampleIndicators" role="button" data-slide="next">Próximo</a>
+                    </div>
+                @endif
             </div>
+                        
             
             <div class="col-md-6" id="info-container">
                 <h1>{{ $event->title }}</h1>
                 <p class="event-city"><ion-icon name="location-outline"></ion-icon>{{ $event->city }}</p>
+                <p class="event-city"><ion-icon name="time-outline"></ion-icon>{{ $event->time }}</p>
                 <p class="events-participants"><ion-icon name="people-outline"></ion-icon>{{ count($event->users) }} Participantes</p>
                 <p class="event-owner"><ion-icon name="star-outline"></ion-icon>{{ $eventOwner['name'] }}</p>
                 
@@ -41,4 +67,5 @@
         </div>
     </div>
 
+    <script src="{{ asset('js/show.js') }}"></script>
 @endsection
