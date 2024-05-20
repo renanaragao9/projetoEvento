@@ -57,7 +57,7 @@ header {
 }
 
 #logo-img {
-    width: 80px;
+    width: 100px;
 }
 
 /* Search Container */
@@ -191,6 +191,16 @@ header {
     padding: 0;
 }
 
+.checkbox-item {
+    column-width: 200px;
+    -moz-column-width: 200px;
+    -webkit-column-width: 200px;
+}
+.form-group {
+    break-inside: avoid; 
+    page-break-inside: avoid;
+}
+
 /* EVENT PAGE */
 #image-container,
 #info-container {
@@ -270,6 +280,56 @@ header {
     margin-top: 20px;
 }
 
+/* SHOW */
+#carousel {
+    display: flex;
+    align-items: center;
+}
+#carousel-images {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+.carousel-image {
+    max-width: 100%;
+    display: none;
+}
+.carousel-image.active {
+    display: block;
+}
+#prevBtn, #nextBtn {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#show-image {
+    height: 400px;
+    object-fit: contain;
+}
+
+#items-list {
+    column-width: 200px; 
+    -moz-column-width: 150px;
+    -webkit-column-width: 150px;
+    column-gap: 10px; 
+    -moz-column-gap: 10px;
+    -webkit-column-gap: 10px;
+    padding: 0;
+    margin: 0;  
+}
+
+#items-list li {
+    break-inside: avoid; 
+    page-break-inside: avoid; 
+    padding: 5px 0; 
+    margin: 0; 
+    list-style: none;
+}
+
+
+
 /* FOOTER */
 footer {
     text-align: center;
@@ -295,5 +355,28 @@ footer p {
     #search-container form {
         width: 100%;
         margin: 0 auto;
+    }
+
+    .checkbox-item {
+        column-count: 2;
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-width: auto;
+        -moz-column-width: auto;
+        -webkit-column-width: auto;
+    }
+
+    #items-list {
+        column-count: 2; /* Mudar para duas colunas */
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-width: auto; /* Redefinir a largura da coluna para o padrão (automático) */
+        -moz-column-width: auto;
+        -webkit-column-width: auto;
+    }
+
+    #show-image {
+        height: 200px;
+        object-fit: contain;
     }
 }
