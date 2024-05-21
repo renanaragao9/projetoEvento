@@ -36,7 +36,13 @@
             <div class="col-md-6" id="info-container">
                 <h1><?php echo e($event->title); ?></h1>
                 <p class="event-city"><ion-icon name="location-outline"></ion-icon><?php echo e($event->city); ?></p>
+                <p class="event-city"><ion-icon name="calendar-outline"></ion-icon><?php echo e(date('d/m/Y', strtotime($event->date))); ?></p>
                 <p class="event-city"><ion-icon name="time-outline"></ion-icon><?php echo e($event->time); ?></p>
+                <?php if($event->private == 0): ?>
+                    <p class="event-city"><ion-icon name="bag-outline"></ion-icon>Privado</p>
+                <?php else: ?>
+                    <p class="event-city"><ion-icon name="earth-outline"></ion-icon>Público</p>
+                <?php endif; ?>
                 <p class="events-participants"><ion-icon name="people-outline"></ion-icon><?php echo e(count($event->users)); ?> Participantes</p>
                 <p class="event-owner"><ion-icon name="star-outline"></ion-icon><?php echo e($eventOwner['name']); ?></p>
                 
@@ -47,6 +53,15 @@
                     </form>
                 <?php else: ?>
                     <p class="already-joined-msg">Você já está participando deste evento!</p>
+                    <a href="<?php echo e($googleMapsUrl); ?>" target="_blank" class="btn-map">
+                        <ion-icon name="map-outline"></ion-icon>
+                        Ver Local
+                    </a>
+
+                    <a class="btn-map" onclick="addToGoogleCalendar('<?php echo e(date('d/m/Y', strtotime($event->date))); ?>', '<?php echo e($event->time); ?>', '<?php echo e($event->title); ?>', '<?php echo e($event->description); ?>', '<?php echo e($enderecoCompleto); ?>')">
+                        <ion-icon name="map-outline"></ion-icon>
+                        Agendar evento
+                    </a>
                 <?php endif; ?>
                 
                 <h3>O evento conta com:</h3>
