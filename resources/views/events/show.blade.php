@@ -37,9 +37,21 @@
             
             <div class="col-md-6" id="info-container">
                 <h1>{{ $event->title }}</h1>
+                
                 <p class="event-city"><ion-icon name="location-outline"></ion-icon>{{ $event->city }}</p>
+                
+                <p class="event-city"><ion-icon name="calendar-outline"></ion-icon>{{ date('d/m/Y', strtotime($event->date))}}</p>
+                
                 <p class="event-city"><ion-icon name="time-outline"></ion-icon>{{ $event->time }}</p>
+               
+                @if($event->private == 0)
+                    <p class="event-city"><ion-icon name="bag-outline"></ion-icon>Privado</p>
+                @else
+                    <p class="event-city"><ion-icon name="earth-outline"></ion-icon>Público</p>
+                @endif
+                
                 <p class="events-participants"><ion-icon name="people-outline"></ion-icon>{{ count($event->users) }} Participantes</p>
+                
                 <p class="event-owner"><ion-icon name="star-outline"></ion-icon>{{ $eventOwner['name'] }}</p>
                 
                 @if(!$hasUserJoined)
@@ -49,6 +61,16 @@
                     </form>
                 @else
                     <p class="already-joined-msg">Você já está participando deste evento!</p>
+                    
+                    <a href="{{ $googleMapsUrl }}" target="_blank" class="btn-map">
+                        <ion-icon name="map-outline"></ion-icon>
+                        Ver Local
+                    </a>
+
+                    <a class="btn-map" onclick="addToGoogleCalendar('{{ date('d/m/Y', strtotime($event->date))}}', '{{ $event->time }}', '{{$event->title}}', '{{$event->description}}', '{{$enderecoCompleto}}')">
+                        <ion-icon name="map-outline"></ion-icon>
+                        Agendar evento
+                    </a>
                 @endif
                 
                 <h3>O evento conta com:</h3>

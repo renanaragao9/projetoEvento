@@ -113,6 +113,10 @@ class EventController extends Controller
 
         $hasUserJoined = false;
 
+        $enderecoCompleto = "{$event->road}, {$event->num}, {$event->neighborhood}, {$event->city}, {$event->state}, {$event->cep}";
+        $enderecoEncode = urlencode($enderecoCompleto);
+        $googleMapsUrl = "https://www.google.com/maps/search/?api=1&query={$enderecoEncode}";
+        
         if($user) {
             
             $userEvents = $user->eventsAsParticipant->toArray();
@@ -126,7 +130,7 @@ class EventController extends Controller
 
         $eventOwner = User::where('id', $event->user_id)->first()->toArray();
 
-        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner, 'hasUserJoined' => $hasUserJoined]);
+        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner, 'hasUserJoined' => $hasUserJoined, 'googleMapsUrl' => $googleMapsUrl, 'enderecoCompleto' => $enderecoCompleto]);
     }
 
     // Função para manipular os dados na dashboard

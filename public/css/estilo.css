@@ -328,6 +328,25 @@ header {
     list-style: none;
 }
 
+.btn-map {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #052252; /* Cor do botão */
+    color: #fff; /* Cor do texto */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn-map:hover {
+    background-color: #357ae8; /* Cor do botão ao passar o mouse */
+}
+.btn-map ion-icon {
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
+}
 
 
 /* FOOTER */
