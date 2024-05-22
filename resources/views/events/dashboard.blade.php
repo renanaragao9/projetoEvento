@@ -28,6 +28,7 @@
                             <td>{{ count($event->users) }}</td>
                             <td>
                                 <a href=" {{route('editarEvento', $event->id)}}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a> 
+                                <a href=" {{route('events.pendingRequests', $event->id)}}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Ver Aprovações</a> 
                                 <form action="{{route('excluirEvento', $event->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')

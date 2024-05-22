@@ -28,6 +28,7 @@
                             <td><?php echo e(count($event->users)); ?></td>
                             <td>
                                 <a href=" <?php echo e(route('editarEvento', $event->id)); ?>" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a> 
+                                <a href=" <?php echo e(route('events.pendingRequests', $event->id)); ?>" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Ver Aprovações</a> 
                                 <form action="<?php echo e(route('excluirEvento', $event->id)); ?>" method="POST">
                                     <?php echo csrf_field(); ?>
                                     <?php echo method_field('DELETE'); ?>
