@@ -30,8 +30,17 @@
             <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="card col-md-3">
                     
-                    <img src="<?php echo e(asset('img/events/' . $event->image)); ?>" alt="<?php echo e($event->title); ?>">
-                    <ion-icon name="bookmark" class="position-absolute top-0 translate-middle m-3" id="card-icon-status"></ion-icon>
+                    <?php
+                        // Decode the JSON string to an array
+                        $images = json_decode($event->image);
+                    ?>
+
+                    <?php if(isset($images[0])): ?>
+                        <img src="<?php echo e(asset('img/events/' . $images[0])); ?>" alt="<?php echo e($event->title); ?>">
+                    <?php endif; ?>
+
+
+                    <ion-icon name="logo-ionic" class="position-absolute top-0 translate-middle m-3" id="<?php echo e($event->classe); ?>"></ion-icon>
 
                     <div class="card-body">
                         <h5 class="card-title"><?php echo e($event->title); ?></h5>

@@ -123,10 +123,14 @@ class EventController extends Controller
 
             foreach($userEvents as $userEvent) {
                 if($userEvent['id'] == $id) {
+                    $confirm = $event->users()->withPivot('confirm')->get()->toArray();
+                    $status = $confirm[0]['pivot']['confirm'];
                     $hasUserJoined = true;
                 }
             }
         }
+
+        dd($status);
 
         $eventOwner = User::where('id', $event->user_id)->first()->toArray();
 
@@ -193,14 +197,67 @@ class EventController extends Controller
 
     // Função para confirmar a presença do usuario no evento
     public function joinEvent($id) {
-
         $user = auth()->user();
-
-        $user->eventsAsParticipant()->attach($id);
-
         $event = Event::findOrFail($id);
 
-        return redirect('/dashboard')->with('msg', 'Sua presença está confirmada no evento' . $event->title) . "!";
+        if ($event->private == 0) {
+            $user->eventsAsParticipant()->attach($id, ['confirm' => false, 'date_confirm' => null]);
+            return redirect('/dashboard')->with('msg', 'Sua solicitação para entrar no evento ' . $event->title . ' está pendente de aprovação.');
+        } else {
+            $user->eventsAsParticipant()->attach($id, ['confirm' => true, 'date_confirm' => now()]);
+            return redirect('/dashboard')->with('msg', 'Sua presença está confirmada no evento ' . $event->title . '!');
+        }
+    }
+
+    public function showPendingRequests($eventId) {
+        $event = Event::findOrFail($eventId);
+
+        // Verifica se o usuário logado é o dono do evento
+        if (auth()->user()->id != $event->user_id) {
+            return redirect('/dashboard')->with('msg', 'Você não tem permissão para ver essas solicitações.');
+        }
+
+        $pendingRequests = $event->users()->wherePivot('confirm', false)->get();
+
+        return view('events.pendingRequests', ['event' => $event, 'pendingRequests' => $pendingRequests]);
+    }
+
+    public function approveRequest($eventId, $userId) {
+        $event = Event::findOrFail($eventId);
+
+        if (auth()->user()->id != $event->user_id) {
+            return redirect('/dashboard')->with('msg', 'Você não tem permissão para aprovar essa solicitação.');
+        }
+
+        $event->users()->updateExistingPivot($userId, ['confirm' => true, 'date_confirm' => now()]);
+
+        return redirect()->back()->with('msg', 'Solicitação aprovada.');
+    }
+
+    public function rejectRequest($eventId, $userId) {
+        $event = Event::findOrFail($eventId);
+
+        if (auth()->user()->id != $event->user_id) {
+            return redirect('/dashboard')->with('msg', 'Você não tem permissão para rejeitar essa solicitação.');
+        }
+
+        $event->users()->detach($userId);
+
+        return redirect()->back()->with('msg', 'Solicitação rejeitada.');
+    }
+
+    public function approveAllRequests($eventId) {
+        $event = Event::findOrFail($eventId);
+    
+        // Verifica se o usuário logado é o dono do evento
+        if (auth()->user()->id != $event->user_id) {
+            return redirect('/dashboard')->with('msg', 'Você não tem permissão para aprovar essas solicitações.');
+        }
+    
+        // Aprova todas as solicitações pendentes de uma vez
+        $event->users()->wherePivot('confirm', false)->update(['confirm' => true, 'date_confirm' => now()]);
+    
+        return redirect()->back()->with('msg', 'Todas as solicitações foram aprovadas.');
     }
 
      // Função para retirar a presença do usuario no evento

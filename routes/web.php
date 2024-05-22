@@ -26,4 +26,9 @@ Route::middleware(['auth'])->group(function() {
     Route::get   ('/dashboard', [EventController::class, 'dashboard'])->name('meuEvento');
     Route::post  ('/evento/unir/{id}', [EventController::class, 'joinEvent'])->name('entrarEvento');
     Route::delete('/evento/sair/{id}', [EventController::class, 'leaveEvent'])->name('deixarEvento');
+
+    Route::get('/events/{id}/pending-requests', [EventController::class, 'showPendingRequests'])->name('events.pendingRequests');
+    Route::post('/events/{eventId}/approve/{userId}', [EventController::class, 'approveRequest'])->name('events.approveRequest');
+    Route::post('events/{eventId}/approveAllRequests', [EventController::class, 'approveAllRequests'])->name('events.approveAllRequests');
+    Route::post('/events/{eventId}/reject/{userId}', [EventController::class, 'rejectRequest'])->name('events.rejectRequest');
 });
