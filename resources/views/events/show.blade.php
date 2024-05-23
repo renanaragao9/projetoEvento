@@ -60,17 +60,21 @@
                         <a href="" class="btn btn-primary" id="event-submit" onclick="event.preventDefault(); this.closest('form').submit();">Confirmar Presença</a>
                     </form>
                 @else
-                    <p class="already-joined-msg">Você já está participando deste evento!</p>
-                    
-                    <a href="{{ $googleMapsUrl }}" target="_blank" class="btn-map">
-                        <ion-icon name="map-outline"></ion-icon>
-                        Ver Local
-                    </a>
+                    @if($status == 0)
+                        <p class="aguard-joined-msg">Solicitação enviada!</p>
+                    @elseif($status == 1)
+                        <p class="already-joined-msg">Você está participando deste evento!</p>
+                            
+                        <a href="{{ $googleMapsUrl }}" target="_blank" class="btn-map">
+                            <ion-icon name="map-outline"></ion-icon>
+                            Ver Local
+                        </a>
 
-                    <a class="btn-map" onclick="addToGoogleCalendar('{{ date('d/m/Y', strtotime($event->date))}}', '{{ $event->time }}', '{{$event->title}}', '{{$event->description}}', '{{$enderecoCompleto}}')">
-                        <ion-icon name="map-outline"></ion-icon>
-                        Agendar evento
-                    </a>
+                        <a class="btn-map" onclick="addToGoogleCalendar('{{ date('d/m/Y', strtotime($event->date))}}', '{{ $event->time }}', '{{$event->title}}', '{{$event->description}}', '{{$enderecoCompleto}}')">
+                            <ion-icon name="map-outline"></ion-icon>
+                            Agendar evento
+                        </a>
+                    @endif
                 @endif
                 
                 <h3>O evento conta com:</h3>

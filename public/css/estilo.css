@@ -260,7 +260,23 @@ header {
     width: 275px;
 }
 
+#info-container .aguard-joined-msg {
+    margin: 15px 0;
+    color: #856404; 
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    padding: 10px;
+    width: 275px;
+}
+
+
 /* DASHBOARD */
+
+.table {
+    text-align: center  ;
+}
+
+
 .dashboard-title-container {
     margin-bottom: 30px;
     margin-top: 30px;
@@ -268,10 +284,15 @@ header {
 
 .dashboard-events-container th {
     width: 25%;
+    text-align: center;
 }
 
 .dashboard-events-container form {
     display: inline-block;
+}
+
+#dash-button {
+    margin: 5px;
 }
 
 /* EDIT PAGE */
@@ -349,6 +370,11 @@ header {
 }
 
 
+
+#peding-button {
+    font-size: 22px;
+}
+
 /* FOOTER */
 footer {
     text-align: center;
@@ -397,5 +423,14 @@ footer p {
     #show-image {
         height: 200px;
         object-fit: contain;
+    }
+
+    #dash-button {
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    .btn-map {
+        margin-bottom: 10px;
     }
 }
