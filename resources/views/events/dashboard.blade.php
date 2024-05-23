@@ -27,12 +27,16 @@
                             <td><a href=" {{route('verEvento', $event->id)}}">{{ $event->title }}</a></td>
                             <td>{{ count($event->users) }}</td>
                             <td>
-                                <a href=" {{route('editarEvento', $event->id)}}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a> 
-                                <a href=" {{route('events.pendingRequests', $event->id)}}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon>Ver Aprovações</a> 
+                                <a href=" {{route('editarEvento', $event->id)}}" class="btn btn-info edit-btn" id="dash-button"><ion-icon name="create-outline"></ion-icon>Editar</a> 
+                                
+                                @if($event->private == 0)
+                                    <a href=" {{route('events.pendingRequests', $event->id)}}" class="btn btn-dark aproved-btn" id="dash-button"><ion-icon name="create-outline"></ion-icon>Ver Aprovações</a> 
+                                @endif
+                                
                                 <form action="{{route('excluirEvento', $event->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon>Deletar</button>
+                                    <button type="submit" class="btn btn-danger delete-btn" id="dash-button"><ion-icon name="trash-outline"></ion-icon>Deletar</button>
                                 </form>
                             </td>
                         </tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
 
 class EventController extends Controller
 {
@@ -113,6 +114,8 @@ class EventController extends Controller
 
         $hasUserJoined = false;
 
+        $status = 0;
+
         $enderecoCompleto = "{$event->road}, {$event->num}, {$event->neighborhood}, {$event->city}, {$event->state}, {$event->cep}";
         $enderecoEncode = urlencode($enderecoCompleto);
         $googleMapsUrl = "https://www.google.com/maps/search/?api=1&query={$enderecoEncode}";
@@ -126,15 +129,14 @@ class EventController extends Controller
                     $confirm = $event->users()->withPivot('confirm')->get()->toArray();
                     $status = $confirm[0]['pivot']['confirm'];
                     $hasUserJoined = true;
+                    
                 }
             }
         }
-
-        dd($status);
-
+        
         $eventOwner = User::where('id', $event->user_id)->first()->toArray();
 
-        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner, 'hasUserJoined' => $hasUserJoined, 'googleMapsUrl' => $googleMapsUrl, 'enderecoCompleto' => $enderecoCompleto]);
+        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner, 'hasUserJoined' => $hasUserJoined, 'googleMapsUrl' => $googleMapsUrl, 'enderecoCompleto' => $enderecoCompleto, 'status' => $status]);
     }
 
     // Função para manipular os dados na dashboard
@@ -147,14 +149,6 @@ class EventController extends Controller
         $eventsAsParticipant = $user->eventsAsParticipant;
 
         return view('events.dashboard', ['events' => $events, 'eventsAsParticipant' => $eventsAsParticipant]);
-    }
-
-    //Função para deletar um evento
-    public function destroy($id) {
-        
-        Event::findOrFail($id)->delete();
-
-        return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
     }
 
     //Função para rota de edição de um evento
@@ -202,10 +196,10 @@ class EventController extends Controller
 
         if ($event->private == 0) {
             $user->eventsAsParticipant()->attach($id, ['confirm' => false, 'date_confirm' => null]);
-            return redirect('/dashboard')->with('msg', 'Sua solicitação para entrar no evento ' . $event->title . ' está pendente de aprovação.');
+            return redirect()->back()->with('msg', 'Sua solicitação para entrar no evento ' . $event->title . ' está pendente de aprovação.');
         } else {
             $user->eventsAsParticipant()->attach($id, ['confirm' => true, 'date_confirm' => now()]);
-            return redirect('/dashboard')->with('msg', 'Sua presença está confirmada no evento ' . $event->title . '!');
+            return redirect()->back()->with('msg', 'Sua presença está confirmada no evento ' . $event->title . '!');
         }
     }
 
@@ -235,13 +229,16 @@ class EventController extends Controller
     }
 
     public function rejectRequest($eventId, $userId) {
+        
         $event = Event::findOrFail($eventId);
+        $user = auth()->user();
 
         if (auth()->user()->id != $event->user_id) {
             return redirect('/dashboard')->with('msg', 'Você não tem permissão para rejeitar essa solicitação.');
         }
 
         $event->users()->detach($userId);
+        $user->eventsAsParticipant()->detach($userId);
 
         return redirect()->back()->with('msg', 'Solicitação rejeitada.');
     }
@@ -270,6 +267,37 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
 
         return redirect('/dashboard')->with('msg', 'Você saiu com sucesso do evento: ' . $event->title) . "!";
+    }
+
+    //Função para deletar um evento
+    public function destroy($id) {
+        
+        $event = Event::findOrFail($id);
+    
+        
+        if (!empty($event->image)) {
+            
+            $images = json_decode($event->image, true);
+    
+            $imageFolder = public_path('img/events/');
+    
+            foreach ($images as $imageName) {
+                $imagePath = $imageFolder . $imageName;
+                
+                if (file_exists($imagePath)) {
+                    
+                    unlink($imagePath);
+                }
+            }
+        }
+    
+        
+        $event->users()->detach();
+    
+        
+        $event->delete();
+    
+        return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
     }
 
     private function obterDiaDaSemana($data) {
