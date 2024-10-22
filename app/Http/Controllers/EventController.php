@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\Gallery;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
@@ -217,6 +219,7 @@ class EventController extends Controller
     }
 
     public function approveRequest($eventId, $userId) {
+        
         $event = Event::findOrFail($eventId);
 
         if (auth()->user()->id != $event->user_id) {
@@ -231,16 +234,14 @@ class EventController extends Controller
     public function rejectRequest($eventId, $userId) {
         
         $event = Event::findOrFail($eventId);
-        $user = auth()->user();
 
         if (auth()->user()->id != $event->user_id) {
             return redirect('/dashboard')->with('msg', 'Você não tem permissão para rejeitar essa solicitação.');
         }
+        
+        $event->users()->updateExistingPivot($userId, ['confirm' => false, 'date_confirm' => now()]);
 
-        $event->users()->detach($userId);
-        $user->eventsAsParticipant()->detach($userId);
-
-        return redirect()->back()->with('msg', 'Solicitação rejeitada.');
+        return redirect()->back()->with('msg', 'Usuário rejeitado com sucesso.');
     }
 
     public function approveAllRequests($eventId) {
@@ -267,6 +268,24 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
 
         return redirect('/dashboard')->with('msg', 'Você saiu com sucesso do evento: ' . $event->title) . "!";
+    }
+
+    public function infoEvent($eventId) {
+        
+        $event = Event::findOrFail($eventId);
+
+        $users = DB::table('event_user')
+            ->join('users', 'event_user.user_id', '=', 'users.id')
+            ->where('event_user.event_id', $eventId)
+            ->select('users.name', 'users.id', 'event_user.confirm', 'event_user.date_confirm')
+            ->get();
+        
+
+        $galerrys = Gallery::all()->where('event_id', $eventId);
+        
+        // dd($users);
+
+        return view('events.infoEvent', ['event' => $event, 'galerrys' => $galerrys, 'users' => $users]);
     }
 
     //Função para deletar um evento

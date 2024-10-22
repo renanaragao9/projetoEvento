@@ -28,7 +28,6 @@
                     <!-- Adicione os controles abaixo do carousel com o botão de tela cheia no centro -->
                     <div class="d-flex justify-content-between align-items-center mt-2">
                         <a class="btn btn-primary" href="#carouselExampleIndicators" role="button" data-slide="prev">Anterior</a>
-                        <button id="fullscreen-button" class="btn btn-secondary">Tela Cheia</button>
                         <a class="btn btn-primary" href="#carouselExampleIndicators" role="button" data-slide="next">Próximo</a>
                     </div>
                 @endif
@@ -89,6 +88,11 @@
             <div class="col-md-12" id="description-container">
                 <h3>Sobre o evento:</h3>
                 <p class="event-description">{{ $event->description }}</p>
+            </div>
+
+            <div class="col-md-12" id="description-container">
+                <h3>Galeria do evento:</h3>
+                
             </div>
         </div>
     </div>

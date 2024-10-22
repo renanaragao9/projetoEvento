@@ -1,9 +1,15 @@
- 
- /* GERAL */
+:root {
+    --main-text-color: #eb2626;
+    --main-background-color: #041024; 
+}
+
+
+/* GERAL */
 body {
     min-height: 100vh;
     padding-bottom: 100px;
     position: relative;
+    background-color: #fafafa;
 }
 
 header {
@@ -41,19 +47,24 @@ header {
 
 /* NAVBAR */
 
+#nav-main {
+    background-color: var(--main-background-color); 
+}
+
 #navbar {
     justify-content: space-between;
     padding: 5px 0;
-    
 }
 
 #navbar a {
     font-size: 18px;
-    color: #757575;
+    color: var(--main-text-color); 
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 #navbar a:hover {
-    color: #f2a340;
+    color: #ff9999;
 }
 
 #logo-img {
@@ -61,23 +72,28 @@ header {
 }
 
 /* Search Container */
+
 #search-container {
-    background-size: cover;
-    background-position: center;
-    height: 200px;
-    padding: 50px;
-    text-align: center;
+    margin-top: 20px;
+    color: var(--main-text-color);
 }
 
-#search-container h1 {
-    color: #f2a340;
-    margin-bottom: 30px;
-    font-weight: 900;
+#search {
+    border-radius: 25px 0 0 25px;
 }
 
-#search-container form {
-    width: 50%;
-    margin: 0 auto;
+.input-group-append .btn {
+    border-radius: 0 25px 25px 0;
+}
+
+.btn-outline-primary {
+    color: var(--main-text-color);
+    border-color: var(--main-text-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--main-text-color);
+    color: #fff;
 }
 
 /* Events list */
@@ -88,10 +104,11 @@ header {
 
 #events-container h2 {
     margin-bottom: 10px;
+    color:  var(--main-text-color);
 }
 
 #events-container .subtitle {
-    color: #757575;
+    color: #0a4e8f;
     margin-bottom: 30px;
 }
 
@@ -101,7 +118,6 @@ header {
 
 #events-container .card {
     flex: 1 1 24%;
-    max-width: 25%;
     border-radius: 10px;
     padding: 0;
     margin: .5%;
@@ -111,6 +127,7 @@ header {
     height: 250px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    object-fit: cover;
 }
 
 .card {
@@ -124,18 +141,27 @@ header {
 }
 
 .card .card-title {
-    color: #212121;
-    font-size: 20px;    
+    color: #052252;
+    font-size: 25px;    
     font-weight: bold;
     margin-bottom: 15px;
     text-align: center;
 }
 
 .card .card-info {
-    font-size: 16px;
+    font-size: 20px;
     color: #3d3b3b;
     margin: 5px;
     font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.card .btn-primary {
+    background-color: #052252;
+    border: none;
+}
+
+.card .btn-primary:hover {
+    background-color: var(--main-background-color);
 }
 
 #card-icon-red {
@@ -214,11 +240,12 @@ header {
 #info-container h1 {
     font-size: 36px;
     font-weight: 900;
+    color: var(--main-text-color);
 }
 
 #info-container p {
     margin: 0;
-    font-size: 14px;
+    font-size: 16px;
     display: flex;
 }
 
@@ -230,7 +257,7 @@ header {
 
 #info-container ion-icon {
     font-size: 20px;
-    color: #f2a340;
+    color: var(--main-text-color);
     margin-right: 5px;
 }
 
@@ -282,6 +309,12 @@ header {
     margin-top: 30px;
 }
 
+.dashboard-title-container h1 {
+    color: var(--main-text-color);
+    font-weight: bold;
+    font-size: 32px;
+}
+
 .dashboard-events-container th {
     width: 25%;
     text-align: center;
@@ -294,6 +327,7 @@ header {
 #dash-button {
     margin: 5px;
 }
+
 
 /* EDIT PAGE */
 .img-preview {
@@ -369,10 +403,16 @@ header {
     margin-right: 8px; /* Espaço entre o ícone e o texto */
 }
 
-
-
 #peding-button {
     font-size: 22px;
+}
+
+/* SHOW EVENT */
+.gallery-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 /* FOOTER */
@@ -432,5 +472,18 @@ footer p {
 
     .btn-map {
         margin-bottom: 10px;
+    }
+
+    /* Home */
+    .w-50 {
+        width: 100% !important;
+    }
+
+    #events-container {
+        padding: 10px;
+    }
+    
+    #events-container h2 {
+        margin-top: 20px;
     }
 }

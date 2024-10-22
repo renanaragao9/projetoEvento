@@ -26,4 +26,9 @@ class Event extends Model
     public function users() {
         return $this->belongsToMany('App\Models\User');
     }
+
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
+    }
 }

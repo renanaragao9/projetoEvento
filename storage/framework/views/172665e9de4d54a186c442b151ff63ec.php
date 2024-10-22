@@ -1,15 +1,13 @@
-@extends('layouts.main')
+<?php $__env->startSection('title', 'Dashboard'); ?>
 
-@section('title', 'Dashboard')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Meus Eventos</h1>
     </div>
 
     <div class="col-md-10 offset-md-1 dashboard-events-container">
-        @if(count($events) > 0)
+        <?php if(count($events) > 0): ?>
             <div class="table-responsive">
                 <div class="input-group w-50 mb-3">
                     
@@ -37,49 +35,49 @@
                     </thead>
                 
                     <tbody id="eventsTableBody">
-                        @foreach($events as $event)
+                        <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td scope="row">{{ $loop->index + 1 }}</td>
-                                <td><a href="{{ route('verEvento', $event->id) }}" class="text-decoration-none">{{ $event->title }}</a></td>
-                                <td>{{ count($event->users) }}</td>
+                                <td scope="row"><?php echo e($loop->index + 1); ?></td>
+                                <td><a href="<?php echo e(route('verEvento', $event->id)); ?>" class="text-decoration-none"><?php echo e($event->title); ?></a></td>
+                                <td><?php echo e(count($event->users)); ?></td>
                                 
                                 <td class="text-center">
-                                    <a href="{{ route('editarEvento', $event->id) }}" class="btn btn-warning edit-btn" id="dash-button">
+                                    <a href="<?php echo e(route('editarEvento', $event->id)); ?>" class="btn btn-warning edit-btn" id="dash-button">
                                         <i class="fas fa-edit"></i> Editar
                                     </a>
                                 </td>
             
-                                @if($event->private == 0)
+                                <?php if($event->private == 0): ?>
                                     <td class="text-center">
-                                        <a href="{{ route('events.pendingRequests', $event->id) }}" class="btn btn-dark aproved-btn" id="dash-button">
+                                        <a href="<?php echo e(route('events.pendingRequests', $event->id)); ?>" class="btn btn-dark aproved-btn" id="dash-button">
                                             <i class="fas fa-eye"></i> Ver Aprovações
                                         </a>
                                     </td>
-                                @else
+                                <?php else: ?>
                                     <td class="text-center">
                                         <span class="text-muted">Aprovações</span>
                                     </td>
-                                @endif
+                                <?php endif; ?>
 
                                 <td class="text-center">
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#addImageModal" onclick="setEventId({{ $event->id }})">
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#addImageModal" onclick="setEventId(<?php echo e($event->id); ?>)">
                                         Adicionar Imagens
                                     </button>
                                 </td>
 
                                 <td class="text-center">
-                                    <a href="{{ route('informacaoEvento', $event->id) }}" class="btn btn-warning edit-btn" id="dash-button">
+                                    <a href="<?php echo e(route('informacaoEvento', $event->id)); ?>" class="btn btn-warning edit-btn" id="dash-button">
                                         <i class="fas fa-edit"></i> Informações
                                     </a>
                                 </td>
                             </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
             </div>        
-        @else
-            <p>Você ainda não tem eventos, <a href="{{ route('criarEvento') }}">Criar evento</a></p>
-        @endif
+        <?php else: ?>
+            <p>Você ainda não tem eventos, <a href="<?php echo e(route('criarEvento')); ?>">Criar evento</a></p>
+        <?php endif; ?>
     </div>
 
     <div class="col-md-10 offset-md-1 dashboard-title-container">
@@ -87,7 +85,7 @@
     </div>
 
     <div class="col-md-10 offset-md-1 dashboard-events-container">
-        @if(count($eventsAsParticipant) > 0)
+        <?php if(count($eventsAsParticipant) > 0): ?>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered table-hover">
                     <thead class="table-dark">
@@ -100,28 +98,28 @@
                     </thead>
     
                     <tbody>
-                        @foreach($eventsAsParticipant as $event)
+                        <?php $__currentLoopData = $eventsAsParticipant; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td scope="row">{{ $loop->index + 1 }}</td>
-                                <td><a href="{{ route('verEvento', $event->id) }}" class="text-decoration-none">{{ $event->title }}</a></td>
-                                <td>{{ count($event->users) }}</td>
+                                <td scope="row"><?php echo e($loop->index + 1); ?></td>
+                                <td><a href="<?php echo e(route('verEvento', $event->id)); ?>" class="text-decoration-none"><?php echo e($event->title); ?></a></td>
+                                <td><?php echo e(count($event->users)); ?></td>
                                 <td class="text-center"> 
-                                    <form action="{{ route('deixarEvento', $event->id) }}" method="POST" class="d-inline">
-                                        @csrf
-                                        @method("DELETE")
+                                    <form action="<?php echo e(route('deixarEvento', $event->id)); ?>" method="POST" class="d-inline">
+                                        <?php echo csrf_field(); ?>
+                                        <?php echo method_field("DELETE"); ?>
                                         <button type="submit" class="btn btn-danger delete-btn">
                                             <i class="fas fa-trash-alt"></i> Sair do Evento
                                         </button>
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
             </div>
-        @else
+        <?php else: ?>
             <p>Você ainda não está participando de nenhum evento, <a href="/">Veja todos os eventos</a></p>
-        @endif
+        <?php endif; ?>
     </div>   
 
     <!-- Modal -->
@@ -134,8 +132,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="imageUploadForm" action="{{ route('galleries.store', '') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+                <form id="imageUploadForm" action="<?php echo e(route('galleries.store', '')); ?>" method="POST" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
                     <div class="modal-body">
                         <input type="hidden" id="eventId" name="event_id">
                         <div class="form-group">
@@ -153,5 +151,6 @@
         </div>
     </div>
 
-    <script src="{{ asset('js/dashboard.js') }}"></script>
-@endsection
+    <script src="<?php echo e(asset('js/dashboard.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/projetoEvento/resources/views/events/dashboard.blade.php ENDPATH**/ ?>
