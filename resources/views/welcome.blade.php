@@ -1,16 +1,17 @@
 @extends('layouts.main')
 
-@section('title', 'Renan´s Eventos')
+@section('title', 'Cabemce Eventos')
 
 @section('content')
 
     <div class="col-md-12" id="search-container">
-        <h1>Busque um evento</h1>
-        <form action="{{route('inicio')}}" method="GET">
-            <div class="input-group">
+        <h1 class="text-center">Busque um evento</h1>
+        
+        <form action="{{route('inicio')}}" method="GET" class="d-flex justify-content-center">
+            <div class="input-group w-50">
                 <input type="text" name="search" class="form-control" id="search" placeholder="Procurar...">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit">
+                    <button class="btn btn-outline-primary" type="submit">
                         Pesquisar
                     </button>
                 </div>
@@ -28,7 +29,7 @@
 
         <div class="row" id="cards-container">
             @foreach ($events as $event)
-                <div class="card col-md-3">
+                <div class="card col-md-4">
                     
                     @php
                         // Decode the JSON string to an array
@@ -38,7 +39,6 @@
                     @if(isset($images[0]))
                         <img src="{{ asset('img/events/' . $images[0]) }}" alt="{{ $event->title }}">
                     @endif
-
 
                     <ion-icon name="logo-ionic" class="position-absolute top-0 translate-middle m-3" id="{{$event->classe}}"></ion-icon>
 

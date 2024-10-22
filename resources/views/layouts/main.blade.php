@@ -11,6 +11,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
+        {{-- Fontes --}}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
         <!-- CSS Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -25,10 +28,10 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light" id="nav-main">
                 <div class="container">
                     <a href="{{ route('inicio') }}" class="navbar-brand">
-                        <img src="{{ asset('img/logo-evento.png') }}" alt="Renan's Eventos" id="logo-img">
+                        <img src="{{ asset('img/logo_evento.png') }}" alt="Renan's Eventos" id="logo-img">
                     </a>
                     
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,32 +41,42 @@
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a href="{{route('inicio')}}" class="nav-link">Eventos</a>
+                                <a href="{{route('inicio')}}" class="nav-link">
+                                    <i class="fas fa-calendar-alt"></i> Eventos
+                                </a>
                             </li>
-                           
                             <li class="nav-item">
-                                <a href="{{ route('criarEvento') }}" class="nav-link">Criar Evento</a>
+                                <a href="{{ route('criarEvento') }}" class="nav-link">
+                                    <i class="fas fa-plus-circle"></i> Criar Evento
+                                </a>
                             </li>
-                           
+                            
                             @auth
-                                <li class="nav-item">
-                                    <a href="{{ route('meuEvento') }}" class="nav-link">Meus eventos</a>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <form action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                        <a href="" class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
-                                    </form>
-                                </li>
+                            <li class="nav-item">
+                                <a href="{{ route('meuEvento') }}" class="nav-link">
+                                    <i class="fas fa-calendar-check"></i> Meus eventos
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <a href="" class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();">
+                                        <i class="fas fa-sign-out-alt"></i> Sair
+                                    </a>
+                                </form>
+                            </li>
                             @endauth
                             
                             @guest
                             <li class="nav-item">
-                                <a href=" {{route('login')}} " class="nav-link">Entrar</a>
+                                <a href="{{route('login')}}" class="nav-link">
+                                    <i class="fas fa-sign-in-alt"></i> Entrar
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a href=" {{route('register')}} " class="nav-link">Cadastrar</a>
+                                <a href="{{route('register')}}" class="nav-link">
+                                    <i class="fas fa-user-plus"></i> Cadastrar
+                                </a>
                             </li>
                             @endguest
                         </ul>

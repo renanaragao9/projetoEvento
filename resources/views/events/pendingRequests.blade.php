@@ -22,6 +22,7 @@
                         @csrf
                         <button type="submit" class="btn btn-success"><ion-icon name="checkbox-outline" id="peding-button"></ion-icon></button>
                     </form>
+                    
                     <form action="{{ route('events.rejectRequest', [$event->id, $request->id]) }}" method="POST" style="display:inline;">
                         @csrf
                         <button type="submit" class="btn btn-danger"><ion-icon name="close-circle-outline" id="peding-button"></ion-icon></button>
