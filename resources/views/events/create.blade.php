@@ -5,7 +5,9 @@
 @section('content')
     
     <div class="col-md-6 offset-md-3" id="event-create-container">
-        <h1>Crie o seu evento</h1>
+        
+        <h1 id="create-title">Crie o seu evento</h1>
+        
         <form action="{{ route('enviarEvento') }}" method="POST" enctype="multipart/form-data">
         @csrf
             <div class="form-group">
@@ -115,8 +117,12 @@
             
             <div id="preview"></div>
             
-            <input type="submit" class="btn btn-primary" id="button-create" value="Criar Evento!">
+            <div class="col s12">
+                <input type="submit" class="btn btn-primary" id="button-create" value="Criar Evento!">
+            </div>
+            
         </form>
     </div>
+    
     <script src="{{ asset('js/create.js') }}"></script>
 @endsection

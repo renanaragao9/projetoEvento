@@ -34,5 +34,7 @@ Route::middleware(['auth'])->group(function() {
     Route::post('events/{eventId}/approveAllRequests',  [EventController::class, 'approveAllRequests'])->name('events.approveAllRequests');
     Route::post('/events/{eventId}/reject/{userId}',    [EventController::class, 'rejectRequest'])->name('events.rejectRequest');
 
-    Route::post('/events/{event}/galleries',            [GalleryController::class, 'store'])->name('galleries.store');
+    Route::post('/events/{event}/galleries',                 [GalleryController::class, 'store'])->name('galleries.store');
+    Route::delete('/gallery/images/{id}',                    [GalleryController::class, 'destroy'])->name('images.destroy');
+    Route::delete('/gallery/event/delete-all/{eventFolder}', [GalleryController::class, 'deleteAll'])->name('images.deleteAll');
 });

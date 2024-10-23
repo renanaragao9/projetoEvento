@@ -3,7 +3,6 @@
     --main-background-color: #041024; 
 }
 
-
 /* GERAL */
 body {
     min-height: 100vh;
@@ -26,7 +25,8 @@ header {
 }
 
 .btn-primary {
-    background-color: #f2a340;
+    background-color: #d6862c;
+    color: #041024;
     border: 2px solid #c28008;
 }
 
@@ -68,7 +68,8 @@ header {
 }
 
 #logo-img {
-    width: 100px;
+    width: 75px;
+    height: 65px;
 }
 
 /* Search Container */
@@ -180,6 +181,11 @@ header {
 }
 
 /* EVENT CREATE PAGE */
+
+#create-title {
+    color:  var(--main-text-color);
+}
+
 #event-create-container {
     padding: 30px;
 }
@@ -315,6 +321,12 @@ header {
     font-size: 32px;
 }
 
+.dashboard-events-container {
+    border: 1px solid #dee2e6; 
+    border-radius: 0.25rem; 
+    padding: 10px; 
+}
+
 .dashboard-events-container th {
     width: 25%;
     text-align: center;
@@ -328,6 +340,11 @@ header {
     margin: 5px;
 }
 
+.event-table-container {
+    max-height: 800px; 
+    overflow-y: auto; 
+    padding: 10px; 
+}
 
 /* EDIT PAGE */
 .img-preview {
@@ -340,18 +357,22 @@ header {
     display: flex;
     align-items: center;
 }
+
 #carousel-images {
     display: flex;
     overflow: hidden;
     width: 100%;
 }
+
 .carousel-image {
     max-width: 100%;
     display: none;
 }
+
 .carousel-image.active {
     display: block;
 }
+
 #prevBtn, #nextBtn {
     background-color: transparent;
     border: none;
@@ -407,13 +428,58 @@ header {
     font-size: 22px;
 }
 
-/* SHOW EVENT */
+.gallery-image-wrapper {
+    position: relative;
+    width: 150px;  
+    height: 150px; 
+    margin-bottom: 15px;
+    overflow: hidden;
+    background-image: url('URL_DA_IMAGEM_MOLDURA');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .gallery-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-image-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-column {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/* SHOW EVENT */
+
+.gallery-image-circle {
     width: 50px;
     height: 50px;
     object-fit: cover;
     border-radius: 50%;
+    cursor: pointer;
 }
+
+#info-sub-titulo {
+    color: #052252;
+    font-size: 27px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+} 
+
 
 /* FOOTER */
 footer {
@@ -485,5 +551,10 @@ footer p {
     
     #events-container h2 {
         margin-top: 20px;
+    }
+
+    /* Show */
+    .gallery-image-wrapper {
+        margin-bottom: 10px;
     }
 }

@@ -3,7 +3,9 @@
 <?php $__env->startSection('content'); ?>
     
     <div class="col-md-6 offset-md-3" id="event-create-container">
-        <h1>Crie o seu evento</h1>
+        
+        <h1 id="create-title">Crie o seu evento</h1>
+        
         <form action="<?php echo e(route('enviarEvento')); ?>" method="POST" enctype="multipart/form-data">
         <?php echo csrf_field(); ?>
             <div class="form-group">
@@ -113,9 +115,13 @@
             
             <div id="preview"></div>
             
-            <input type="submit" class="btn btn-primary" id="button-create" value="Criar Evento!">
+            <div class="col s12">
+                <input type="submit" class="btn btn-primary" id="button-create" value="Criar Evento!">
+            </div>
+            
         </form>
     </div>
+    
     <script src="<?php echo e(asset('js/create.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 
