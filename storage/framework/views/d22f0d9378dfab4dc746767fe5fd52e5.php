@@ -4,13 +4,22 @@
 
     <div class="col-md-10 offset-md-1 dashboard-title-container">
         <h1>Informações sobre o evento: <?php echo e($event->title); ?></h1>
+
+        <button class="btn btn-primary" id="backButton">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
     </div>
 
     <div class="col-md-10 offset-md-1 dashboard-events-container">
+       
+        <h5 id="info-sub-titulo">Tabela de participantes</h5>
+        
         <?php if(count($users) > 0): ?>
             <div class="table-responsive">
                 <div class="input-group w-50 mb-3">
+                    
                     <input type="text" id="searchInput" class="form-control" placeholder="Pesquisa...">
+                    
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" id="searchButton" type="button">
                             Pesquisar
@@ -29,7 +38,7 @@
                             <th scope="col">Nome</th>
                             <th scope="col">Data da confirmação</th>
                             <th scope="col">Situação</th>
-                            <th scope="col">Ações</th>
+                            <th scope="col" colspan="2">Ações</th>
                         </tr>
                     </thead>
                 
@@ -38,7 +47,7 @@
                             <tr>
                                 <td class="user-id"><?php echo e($user->id); ?></td>
                                 <td class="user-name"><?php echo e($user->name); ?></td>
-                                <td><?php echo e($user->date_confirm); ?></td>
+                                <td><?php echo e(\Carbon\Carbon::parse($user->date_confirm)->format('d/m/Y')); ?></td>
                                 <td><?php echo e($user->confirm ? 'Aprovado' : 'Reprovado'); ?></td>
                                 <td>
                                     <?php if($user->confirm == true): ?>
@@ -62,10 +71,13 @@
             <p>Evento ainda não possui convidados confirmados</p>
         <?php endif; ?>
     </div>
+    
+    <div class="col-md-10 offset-md-1 dashboard-events-container mt-3">
 
-    <div class="col-md-10 offset-md-1 dashboard-events-container">
-        <?php if(count($galerrys) > 0): ?>
-            <div class="table-responsive">
+        <h5 id="info-sub-titulo">Tabela de Imagens do evento</h5>     
+
+        <?php if(count($gallerys) > 0): ?>
+            <div class="table-responsive">      
                 <table class="table table-striped table-bordered table-hover">
                     <thead class="table-dark">
                         <tr>
@@ -77,18 +89,29 @@
                     </thead>
                 
                     <tbody id="eventsTableBody">
-                        <?php $__currentLoopData = $galerrys; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gallery): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <tr>
-                            <td><?php echo e($gallery->id); ?></td>
-                            <td><?php echo e($gallery->image_path); ?></td>
-                            <td>
-                                <img src="<?php echo e(asset('img/gallery/' . $gallery->image_folder . '/' . $gallery->image_path)); ?>" class="gallery-image" alt="Gallery Image" data-id="<?php echo e($gallery->id); ?>" data-folder="<?php echo e($gallery->image_folder); ?>" data-path="<?php echo e($gallery->image_path); ?>" onclick="openModal(this)">
-                            </td>
-                            <td><?php echo e($gallery->created_at); ?></td>
-                        </tr>
+                        <?php $__currentLoopData = $gallerys; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gallery): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <tr>
+                                <td><?php echo e($gallery->id); ?></td>
+                                
+                                <td><?php echo e($gallery->image_path); ?></td>
+                                
+                                <td>
+                                    <img src="<?php echo e(asset('img/gallery/' . $gallery->image_folder . '/' . $gallery->image_path)); ?>" class="gallery-image-circle" alt="Gallery Image" data-id="<?php echo e($gallery->id); ?>" data-folder="<?php echo e($gallery->image_folder); ?>" data-path="<?php echo e($gallery->image_path); ?>" onclick="openModal(this)">
+                                </td>
+                                
+                                <td>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModalDelete" data-image-id="<?php echo e($gallery->id); ?>" title="Excluír">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
+                
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModalDeleteAll" data-event-folder="<?php echo e($gallerys[0]->image_folder); ?>" title="Excluir Tudo">
+                    <i class="fas fa-trash-alt"></i> Excluir Tudo
+                </button> 
             </div>   
         <?php else: ?>
             <p>Evento ainda não possui galeria de fotos</p>
@@ -149,13 +172,70 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="imageModalLabel">Imagem Completa</h5>
+                    
+                    <!-- Botão de fechar atualizado -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                
                 <div class="modal-body text-center">
                     <img id="modalImage" src="" class="img-fluid" alt="Gallery Image Full">
+                </div>
+                
+                <div class="modal-footer">
+                    
+                    <!-- Botão Fechar do Footer -->
+                    <button type="button" id="downloadButton" class="btn btn-primary">Baixar Imagem</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Modal de Confirmação para Exclusão -->
+    <div class="modal fade" id="confirmModalDelete" tabindex="-1" aria-labelledby="confirmModalDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalDeleteLabel">Confirmar Exclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Você tem certeza que deseja excluir esta imagem?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <form id="deleteImageForm" action="" method="POST">
+                        <?php echo csrf_field(); ?>
+                        <?php echo method_field('DELETE'); ?>
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação para Exclusão de Todas as Imagens -->
+    <div class="modal fade" id="confirmModalDeleteAll" tabindex="-1" aria-labelledby="confirmModalDeleteAllLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalDeleteAllLabel">Confirmar Exclusão de Todas as Imagens</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Você tem certeza que deseja excluir todas as imagens e a pasta do evento?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <form id="deleteAllImagesForm" action="" method="POST">
+                        <?php echo csrf_field(); ?>
+                        <?php echo method_field('DELETE'); ?>
+                        <button type="submit" class="btn btn-danger">Excluir Tudo</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Formulários escondidos para submissão -->
     <form id="approveForm" action="<?php echo e(route('events.approveRequest', [$event->id, $user->id])); ?>" method="POST" style="display:none;">

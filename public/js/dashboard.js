@@ -1,36 +1,62 @@
-const searchInput = document.getElementById('searchInput');
-const searchButton = document.getElementById('searchButton');
-const noResultsMessage = document.getElementById('noResultsMessage');
+document.getElementById('searchInput').addEventListener('input', function() {
 
-searchInput.addEventListener('keyup', filterEvents);
-searchButton.addEventListener('click', filterEvents);
-
-function filterEvents() {
-    const filter = searchInput.value.toLowerCase();
-    const rows = document.querySelectorAll('#eventsTableBody tr');
+    const searchValue = this.value.toLowerCase();
+    const table = document.getElementById('eventsTable');
+    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
     let hasResults = false;
 
-    rows.forEach(row => {
-        const cells = row.getElementsByTagName('td');
-        const titleCell = cells[1]; // O título do evento está na segunda coluna
+    document.getElementById('noResultsMessage').style.display = 'none';
 
-        // Verifica se o título contém o texto da pesquisa
-        if (titleCell && titleCell.textContent.toLowerCase().includes(filter)) {
-            row.style.display = ''; // Mostra a linha
-            hasResults = true; // Pelo menos um resultado encontrado
-        } else {
-            row.style.display = 'none'; // Esconde a linha
+    for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        let rowText = '';
+
+        for (let j = 0; j < cells.length; j++) {
+            rowText += cells[j].innerText.toLowerCase() + ' ';
         }
-    });
 
-    // Atualiza a visibilidade da mensagem de "nenhum resultado"
-    if (hasResults) {
-        noResultsMessage.style.display = 'none'; // Esconde a mensagem
-    } else {
-        noResultsMessage.style.display = 'block'; // Mostra a mensagem
+        if (rowText.includes(searchValue)) {
+            rows[i].style.display = ''; 
+            hasResults = true;
+        } else {
+            rows[i].style.display = 'none';
+        }
     }
-}
 
+    if (!hasResults) {
+        document.getElementById('noResultsMessage').style.display = 'block';
+    }
+});
+
+document.getElementById('searchInput2').addEventListener('input', function() {
+    
+    const searchValue = this.value.toLowerCase();
+    const table = document.getElementById('eventsTableParticipants');
+    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    let hasResults = false;
+
+    document.getElementById('noResultsMessage').style.display = 'none';
+
+    for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        let rowText = '';
+
+        for (let j = 0; j < cells.length; j++) {
+            rowText += cells[j].innerText.toLowerCase() + ' ';
+        }
+
+        if (rowText.includes(searchValue)) {
+            rows[i].style.display = '';
+            hasResults = true;
+        } else {
+            rows[i].style.display = 'none';
+        }
+    }
+
+    if (!hasResults) {
+        document.getElementById('noResultsMessageParticipant').style.display = 'block';
+    }
+});
 
 function setEventId(id) {
     document.getElementById('eventId').value = id;

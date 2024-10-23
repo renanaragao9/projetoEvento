@@ -91,6 +91,45 @@
             <div class="col-md-12" id="description-container">
                 <h3>Galeria do evento:</h3>
                 
+                <div class="row">
+                    <?php $__currentLoopData = $gallerys; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gallery): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-md-2 col-sm-2 col-6 gallery-column">
+                        <div class="gallery-image-wrapper">
+                            <img src="<?php echo e(asset('img/gallery/' . $gallery->image_folder . '/' . $gallery->image_path)); ?>" 
+                                class="gallery-image" 
+                                alt="Imagem do evento" 
+                                data-toggle="modal" 
+                                data-target="#imageModal<?php echo e($gallery->id); ?>" />
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="imageModal<?php echo e($gallery->id); ?>" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel<?php echo e($gallery->id); ?>" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="imageModalLabel<?php echo e($gallery->id); ?>">Visualizar Imagem</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="<?php echo e(asset('img/gallery/' . $gallery->image_folder . '/' . $gallery->image_path)); ?>" 
+                                        class="img-fluid" 
+                                        alt="Imagem do evento completo" />
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="<?php echo e(asset('img/gallery/' . $gallery->image_folder . '/' . $gallery->image_path)); ?>" 
+                                    download 
+                                    class="btn btn-primary">
+                                    Baixar Imagem
+                                    </a>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </div>
             </div>
         </div>
     </div>
