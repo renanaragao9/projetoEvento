@@ -23,6 +23,10 @@ return new class extends Migration
             $table->string('state');
             $table->string('time');
             $table->boolean('private');
+            $table->string('image');
+            $table->json('items');
+            $table->dateTime('date');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

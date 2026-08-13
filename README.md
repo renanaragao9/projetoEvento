@@ -70,33 +70,33 @@ Acesse a aplicação em `http://localhost:8000`.
 
 ### Tabelas principais
 
-| Tabela      | Descrição                                              |
-|-------------|--------------------------------------------------------|
-| `users`     | Usuários (Jetstream, com suporte a 2FA)                |
-| `events`    | Eventos com título, descrição, endereço, data e itens  |
-| `event_user`| Pivô entre usuários e eventos (confirmação de presença)|
-| `galleries` | Imagens da galeria de cada evento                      |
+| Tabela       | Descrição                                               |
+| ------------ | ------------------------------------------------------- |
+| `users`      | Usuários (Jetstream, com suporte a 2FA)                 |
+| `events`     | Eventos com título, descrição, endereço, data e itens   |
+| `event_user` | Pivô entre usuários e eventos (confirmação de presença) |
+| `galleries`  | Imagens da galeria de cada evento                       |
 
 ## Rotas principais
 
-| Método | Rota                              | Descrição                                    |
-|--------|-----------------------------------|----------------------------------------------|
-| GET    | `/`                               | Home com lista e busca de eventos            |
-| GET    | `/verEvento/{id}`                 | Página de detalhes do evento                 |
-| GET    | `/evento/criar`                   | Formulário de criação (autenticado)          |
-| POST   | `/Criando`                        | Salvar novo evento                           |
-| GET    | `/dashboard`                      | Eventos do usuário (criados e participando)  |
-| GET    | `/evento/editar/{id}`             | Editar evento (somente dono)                 |
-| DELETE | `/evento/{id}`                    | Excluir evento                               |
-| POST   | `/evento/unir/{id}`               | Entrar no evento                             |
-| DELETE | `/evento/sair/{id}`               | Sair do evento                               |
-| GET    | `/events/{id}/pending-requests`   | Solicitações pendentes (somente dono)        |
-| POST   | `/events/{eventId}/approve/{userId}` | Aprovar solicitação                        |
-| POST   | `/events/{eventId}/reject/{userId}`  | Rejeitar solicitação                       |
-| POST   | `/events/{eventId}/approveAllRequests` | Aprovar todas as solicitações            |
-| POST   | `/events/{event}/galleries`       | Enviar imagens para a galeria                |
-| DELETE | `/gallery/images/{id}`            | Excluir imagem da galeria                    |
-| DELETE | `/gallery/event/delete-all/{eventFolder}` | Excluir toda a galeria do evento    |
+| Método | Rota                                      | Descrição                                   |
+| ------ | ----------------------------------------- | ------------------------------------------- |
+| GET    | `/`                                       | Home com lista e busca de eventos           |
+| GET    | `/verEvento/{id}`                         | Página de detalhes do evento                |
+| GET    | `/evento/criar`                           | Formulário de criação (autenticado)         |
+| POST   | `/Criando`                                | Salvar novo evento                          |
+| GET    | `/dashboard`                              | Eventos do usuário (criados e participando) |
+| GET    | `/evento/editar/{id}`                     | Editar evento (somente dono)                |
+| DELETE | `/evento/{id}`                            | Excluir evento                              |
+| POST   | `/evento/unir/{id}`                       | Entrar no evento                            |
+| DELETE | `/evento/sair/{id}`                       | Sair do evento                              |
+| GET    | `/events/{id}/pending-requests`           | Solicitações pendentes (somente dono)       |
+| POST   | `/events/{eventId}/approve/{userId}`      | Aprovar solicitação                         |
+| POST   | `/events/{eventId}/reject/{userId}`       | Rejeitar solicitação                        |
+| POST   | `/events/{eventId}/approveAllRequests`    | Aprovar todas as solicitações               |
+| POST   | `/events/{event}/galleries`               | Enviar imagens para a galeria               |
+| DELETE | `/gallery/images/{id}`                    | Excluir imagem da galeria                   |
+| DELETE | `/gallery/event/delete-all/{eventFolder}` | Excluir toda a galeria do evento            |
 
 ## Estrutura de diretórios
 
@@ -120,7 +120,3 @@ resources/views/
 ```bash
 php artisan test
 ```
-
-## Licença
-
-MIT
